@@ -22,7 +22,7 @@ export default function LiveShoppingPage() {
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60"></div>
         </div>
 
         {/* Interaction Layers */}
@@ -99,7 +99,7 @@ export default function LiveShoppingPage() {
             {/* PRODUCT SPOTLIGHT */}
             <div className="pointer-events-auto animate-in slide-in-from-bottom-4 duration-700">
               <div className="bg-white/95 dark:bg-on-surface/90 backdrop-blur-2xl rounded-2xl p-3 flex items-center gap-4 shadow-2xl ring-1 ring-white/20">
-                <div className="w-16 h-16 relative rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+                <div className="w-16 h-16 relative rounded-xl bg-surface-container overflow-hidden shrink-0">
                   <Image alt="Radiance Serum" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1f8sB7t4n1jsFYswrpn-fwl5BUxCX2Al8HmaAY_E7XFTUsFt6YeUQ37IDoT7lzqpfavT-JWqKFUaeGY-0ONKk8HL4DBXcZ2jOf5BtW8p2nty7D3rCeGg8b-sB1ZyULzggiBpMeYc5DBJWOGp3Eq4mHuCH4RBV5J2oT5dDA4LqiR3PNTQWaaV8BIeBDtPx6JWfPFnIh1EItmX1vFgVX_VyxjorGFDsCKn-vo4_NmRLrkxfY3Ci0rXHT0CthGavL5yg0ScclvypMHHd" fill sizes="64px" className="object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -110,7 +110,7 @@ export default function LiveShoppingPage() {
                     <span className="text-secondary text-[10px] line-through">$62.00</span>
                   </div>
                 </div>
-                <button className="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-xl font-bold text-sm shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+                <button className="bg-linear-to-br from-primary to-primary-container text-white px-6 py-3 rounded-xl font-bold text-sm shadow-md hover:scale-[1.02] active:scale-95 transition-all">
                   Buy Now
                 </button>
               </div>
@@ -122,7 +122,7 @@ export default function LiveShoppingPage() {
       {/* BOTTOM BAR: Interaction Controls */}
       <div className={cn("absolute inset-x-0 bottom-0 z-30 transform transition-transform duration-500 ease-in-out pointer-events-auto flex flex-col h-[70%]", isTrayOpen ? "translate-y-0" : "translate-y-[calc(100%-80px)]")}>
         {/* Tray Handle/Header */}
-        <div className="bg-surface/90 backdrop-blur-2xl rounded-t-3xl border-t border-white/20 p-4 cursor-pointer flex-shrink-0" onClick={() => setIsTrayOpen(!isTrayOpen)}>
+        <div className="bg-surface/90 backdrop-blur-2xl rounded-t-3xl border-t border-white/20 p-4 cursor-pointer shrink-0" onClick={() => setIsTrayOpen(!isTrayOpen)}>
           <div className="w-12 h-1 bg-outline-variant/50 rounded-full mx-auto mb-4"></div>
           <div className="flex justify-between items-center px-2 mb-2">
             <h2 className="font-serif italic text-lg text-on-surface">Featured Products</h2>
@@ -134,7 +134,7 @@ export default function LiveShoppingPage() {
         <div className="bg-surface/90 backdrop-blur-2xl px-6 pb-24 flex-1 overflow-y-auto space-y-4">
           {/* Product Item 1 */}
           <div className="flex items-center gap-4 p-3 bg-surface-container-low/50 rounded-2xl border border-outline-variant/20">
-            <div className="w-20 h-20 relative rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+            <div className="w-20 h-20 relative rounded-xl bg-surface-container overflow-hidden shrink-0">
               <Image alt="Radiance Serum" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1f8sB7t4n1jsFYswrpn-fwl5BUxCX2Al8HmaAY_E7XFTUsFt6YeUQ37IDoT7lzqpfavT-JWqKFUaeGY-0ONKk8HL4DBXcZ2jOf5BtW8p2nty7D3rCeGg8b-sB1ZyULzggiBpMeYc5DBJWOGp3Eq4mHuCH4RBV5J2oT5dDA4LqiR3PNTQWaaV8BIeBDtPx6JWfPFnIh1EItmX1vFgVX_VyxjorGFDsCKn-vo4_NmRLrkxfY3Ci0rXHT0CthGavL5yg0ScclvypMHHd" fill sizes="80px" className="object-cover" />
             </div>
             <div className="flex-1 min-w-0">
@@ -152,7 +152,7 @@ export default function LiveShoppingPage() {
 
           {/* Product Item 2 */}
           <div className="flex items-center gap-4 p-3 bg-surface-container-low/50 rounded-2xl border border-outline-variant/20">
-            <div className="w-20 h-20 relative rounded-xl bg-surface-container overflow-hidden flex-shrink-0">
+            <div className="w-20 h-20 relative rounded-xl bg-surface-container overflow-hidden shrink-0">
               <Image alt="Cleansing Balm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-6L4rK4rW-2Q3jW7F-zG2F9V-vJ5v6D1u3V8P2V4L-M4L6K4R4V-2Q3jW7F-zG2F9V-vJ5v6D1u3V8P2V4L-M4L6K4R4V-2Q3jW7F-zG2F9V" fill sizes="80px" className="object-cover bg-surface-variant" />
             </div>
             <div className="flex-1 min-w-0">
@@ -179,7 +179,7 @@ export default function LiveShoppingPage() {
             <Send className="w-4 h-4 fill-current" />
           </button>
         </div>
-        <button className="p-3 rounded-full bg-gradient-to-tr from-yellow-400 to-primary-container text-on-surface-variant shadow-lg hover:scale-105 active:scale-95 transition-all" title="Send Gift">
+        <button className="p-3 rounded-full bg-linear-to-tr from-yellow-400 to-primary-container text-on-surface-variant shadow-lg hover:scale-105 active:scale-95 transition-all" title="Send Gift">
           <Gift className="w-5 h-5" />
         </button>
       </footer>

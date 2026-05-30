@@ -12,10 +12,12 @@ export function Sidebar() {
       </div>
       
       <div className="px-4 pb-4">
-        <Button className="w-full justify-start gap-2 bg-primary hover:bg-primary/90 text-on-primary rounded-xl h-12">
-          <ScanFace className="w-5 h-5" />
-          <span className="font-semibold">Start Analysis</span>
-        </Button>
+        <Link href="/start-analysis" className="block w-full">
+          <Button className="w-full justify-start gap-2 bg-primary hover:bg-primary/90 text-on-primary rounded-xl h-12">
+            <ScanFace className="w-5 h-5" />
+            <span className="font-semibold">Start Analysis</span>
+          </Button>
+        </Link>
       </div>
 
       <nav className="flex-1 px-4 space-y-2 overflow-y-auto">

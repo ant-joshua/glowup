@@ -1,0 +1,14 @@
+**/node_modules
+**/.next
+**/dist
+**/build
+**/out
+
+**/.env
+**/.env.*
+
+.git
+.gitignore
+.DS_Store
+.idea
+.vscode

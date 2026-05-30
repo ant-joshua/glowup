@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Serif, Manrope } from "next/font/google";
 import "./index.css";
 
 const inter = Inter({
+  variable: "--font-sans-inter",
+  subsets: ["latin"],
+});
+
+const notoSerif = Noto_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -18,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased dark`}>
+    <html lang="en" className={`${inter.variable} ${notoSerif.variable} ${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
       </body>

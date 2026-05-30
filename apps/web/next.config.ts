@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         hostname: "github.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.mailry.co",
+        pathname: "/**",
+      },
     ],
   },
 };

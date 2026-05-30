@@ -273,7 +273,7 @@ export default function StartAnalysisPage() {
                 <div className="space-y-2">
                   <div className="aspect-[3/4] relative rounded-xl overflow-hidden bg-surface-container-high border border-border">
                     <Image
-                      src="https://images.unsplash.com/photo-1512496015851-a1dc8a477d95?q=80&w=200&auto=format&fit=crop"
+                      src="https://cdn.mailry.co/assets/3.jpeg"
                       alt="Front face example"
                       fill
                       className="object-cover"
@@ -285,7 +285,7 @@ export default function StartAnalysisPage() {
                 <div className="space-y-2">
                   <div className="aspect-[3/4] relative rounded-xl overflow-hidden bg-surface-container-high border border-border">
                     <Image
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+                      src="https://cdn.mailry.co/assets/2.jpeg"
                       alt="Left side example"
                       fill
                       className="object-cover"
@@ -297,7 +297,7 @@ export default function StartAnalysisPage() {
                 <div className="space-y-2">
                   <div className="aspect-[3/4] relative rounded-xl overflow-hidden bg-surface-container-high border border-border">
                     <Image
-                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop"
+                      src="https://cdn.mailry.co/assets/1.jpeg"
                       alt="Right side example"
                       fill
                       className="object-cover"

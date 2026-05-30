@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { featuresCatalog } from "@/features/featuresCatalog";
 import {
   ArrowRight,
   Briefcase,
@@ -12,50 +13,14 @@ import {
   Video,
 } from "lucide-react";
 
-const FEATURE_ITEMS = [
-  {
-    title: "AI Personal Analysis",
-    description:
-      "Upload a selfie and get an instant breakdown of your face, skin, style, and grooming baseline.",
-    href: "/core/analysis",
-    icon: ScanFace,
-  },
-  {
-    title: "Outfit & Beauty Intelligence",
-    description:
-      "Wardrobe planning, outfit generation, and skincare ritual design built around your profile.",
-    href: "/ai-studio/videos",
-    icon: Shirt,
-  },
-  {
-    title: "Personal Branding",
-    description:
-      "A brand-ready presence across social and professional channels, guided by data and taste.",
-    href: "/intelligence/persona",
-    icon: Briefcase,
-  },
-  {
-    title: "Creator Community",
-    description:
-      "Follow routines, learn from creators, and stay consistent with a system that keeps you on track.",
-    href: "/creator",
-    icon: Users,
-  },
-  {
-    title: "AI Video Studio",
-    description:
-      "Generate cinematic demos and tutorials for skincare, outfits, and marketing assets.",
-    href: "/ai-studio/videos",
-    icon: Video,
-  },
-  {
-    title: "Affiliate Commerce",
-    description:
-      "Shop recommended products quickly, build lists, and track what actually moves the needle.",
-    href: "/commerce",
-    icon: ShoppingBag,
-  },
-] as const;
+const FEATURE_ICONS = {
+  "scan-face": ScanFace,
+  shirt: Shirt,
+  briefcase: Briefcase,
+  users: Users,
+  video: Video,
+  "shopping-bag": ShoppingBag,
+} as const;
 
 export default function FeaturesPage() {
   return (
@@ -126,12 +91,12 @@ export default function FeaturesPage() {
           <div className="container mx-auto max-w-6xl px-4">
             <div className="rounded-[2rem] bg-surface-container-lowest shadow-ambient-sm">
               <div className="grid divide-y divide-outline/20">
-                {FEATURE_ITEMS.map((item) => {
-                  const Icon = item.icon;
+                {featuresCatalog.map((item) => {
+                  const Icon = FEATURE_ICONS[item.icon];
                   return (
                     <Link
                       key={item.title}
-                      href={item.href}
+                      href={`/features/${item.slug}`}
                       className="group flex flex-col gap-4 px-6 py-7 transition-colors hover:bg-surface-container-low md:flex-row md:items-start md:justify-between md:gap-8"
                     >
                       <div className="flex gap-4">
@@ -178,7 +143,7 @@ export default function FeaturesPage() {
                   variant="secondary"
                   className="h-16 px-10 text-lg"
                 >
-                  <Link href="/core/analysis">Start Analysis</Link>
+                  <Link href="/features/ai-personal-analysis">Start Analysis</Link>
                 </Button>
               </div>
             </div>
@@ -188,4 +153,3 @@ export default function FeaturesPage() {
     </div>
   );
 }
-

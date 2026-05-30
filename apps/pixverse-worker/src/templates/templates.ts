@@ -20,7 +20,7 @@ export const templates: Template[] = [
         label: "Platform",
         type: "select",
         required: true,
-        options: ["TikTok", "Instagram Reels", "YouTube Shorts"],
+        options: ["Douyin", "TikTok", "Instagram Reels", "YouTube Shorts"],
       },
       {
         key: "tone",
@@ -69,7 +69,7 @@ export const templates: Template[] = [
         label: "Platform",
         type: "select",
         required: true,
-        options: ["TikTok", "Instagram Reels", "YouTube Shorts"],
+        options: ["Douyin", "TikTok", "Instagram Reels", "YouTube Shorts"],
       },
       {
         key: "mood",
@@ -100,6 +100,54 @@ export const templates: Template[] = [
       "Scene {sceneIndex}/{sceneTotal}: {scene}. Build an editorial outfit story for {occasion}. Style direction: {styleDirection}. Mood: {mood}. Key pieces: {pieces}. Styling notes: {stylingNotes}. Platform: {platform}. Aspect ratio {aspectRatio}. Full-body shots, texture details, smooth transitions, premium fashion film energy.",
   },
   {
+    id: "douyin-makeup-editorial-v1",
+    title: "Douyin Makeup Editorial",
+    description:
+      "Makeup tutorial multi-scene template optimized for Douyin pacing and vertical framing.",
+    fields: [
+      { key: "lookName", label: "Look name", type: "text", required: true },
+      {
+        key: "skinFinish",
+        label: "Skin finish",
+        type: "select",
+        required: true,
+        options: ["Natural", "Soft Matte", "Glowy"],
+      },
+      {
+        key: "platform",
+        label: "Platform",
+        type: "select",
+        required: true,
+        options: ["Douyin", "TikTok", "Instagram Reels", "YouTube Shorts"],
+      },
+      {
+        key: "tone",
+        label: "Tone",
+        type: "select",
+        required: true,
+        options: ["Educational", "Confident", "Friendly", "Luxury"],
+      },
+      { key: "steps", label: "Makeup steps", type: "list", required: true },
+      {
+        key: "sceneDurationSec",
+        label: "Scene duration",
+        type: "select",
+        required: true,
+        options: ["5", "6", "7", "8", "9", "10"],
+      },
+    ],
+    defaults: {
+      model: "v6",
+      quality: "720p",
+      aspectRatio: "9:16",
+      durationSec: 6,
+      audio: true,
+      multiShot: true,
+    },
+    promptTemplate:
+      "Scene {sceneIndex}/{sceneTotal}: {scene}. Douyin makeup tutorial for look: {lookName}. Skin finish: {skinFinish}. Full steps: {steps}. Tone: {tone}. Platform: {platform}. Aspect ratio {aspectRatio}. Clean vanity lighting, close-up texture shots, quick cuts, minimal but premium on-screen text, satisfying before/after reveal.",
+  },
+  {
     id: "virtual-try-on-motion-v1",
     title: "Virtual Try-On Motion",
     description:
@@ -112,7 +160,7 @@ export const templates: Template[] = [
         label: "Platform",
         type: "select",
         required: true,
-        options: ["TikTok", "Instagram Reels", "YouTube Shorts"],
+        options: ["Douyin", "TikTok", "Instagram Reels", "YouTube Shorts"],
       },
       {
         key: "movement",

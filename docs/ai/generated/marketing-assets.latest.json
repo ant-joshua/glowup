@@ -1,5 +1,148 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-30T00:00:00.000Z",
-  "item": null
+  "updatedAt": "2026-05-30T07:42:19.466Z",
+  "item": {
+    "id": "marketing_1780126842651_8b1c531f",
+    "status": "succeeded",
+    "createdAt": "2026-05-30T07:40:42.653Z",
+    "input": {
+      "campaignName": "GlowUp AI Face Analysis Demo",
+      "productName": "GlowUp Editorial Platform",
+      "audience": "Landing page visitors curious about premium AI self-analysis",
+      "pageGoal": "Generate a dedicated feature-demo marketing asset for the AI face analysis flow",
+      "valueProp": "GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap",
+      "cta": "See your face analysis",
+      "visualStyle": "Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow",
+      "brandNotes": "Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.",
+      "imageModel": "qwen-image",
+      "imageQuality": "1080p",
+      "imageAspectRatio": "16:9",
+      "videoModel": "v6",
+      "videoQuality": "720p",
+      "videoAspectRatio": "16:9",
+      "videoDurationSec": 6,
+      "videoStoryMode": "multi-shot",
+      "imageShots": [
+        "AI face analysis landing visual with premium selfie upload framing and elegant insight overlays",
+        "Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition"
+      ],
+      "videoBeats": [
+        "AI face analysis feature demo for the landing page with premium storytelling"
+      ],
+      "videoStoryboard": [
+        "User uploads a refined selfie into the GlowUp interface with calm editorial framing",
+        "Elegant scan overlays map facial structure and skin insights with premium motion graphics",
+        "The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room"
+      ]
+    },
+    "output": {
+      "images": [
+        {
+          "id": "image_1",
+          "title": "AI face analysis landing visual with premium selfie upload framing and elegant insight overlays",
+          "status": "succeeded",
+          "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+          "startedAt": "2026-05-30T07:40:42.674Z",
+          "finishedAt": "2026-05-30T07:40:59.297Z",
+          "rawSubmit": {
+            "image_id": 405513198236638,
+            "trace_id": "b369ad94-4963-4bf4-aea0-de2c821618d0",
+            "status": "completed",
+            "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F4d0adfb0-a23c-41da-850d-2d02e44efa80.jpg",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "model": "qwen-image",
+            "width": 1920,
+            "height": 1080,
+            "created_at": "2026-05-30T07:40:45Z"
+          },
+          "output": {
+            "imageId": 405513198236638,
+            "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F4d0adfb0-a23c-41da-850d-2d02e44efa80.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        {
+          "id": "image_2",
+          "title": "Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition",
+          "status": "succeeded",
+          "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+          "startedAt": "2026-05-30T07:40:59.304Z",
+          "finishedAt": "2026-05-30T07:41:19.338Z",
+          "rawSubmit": {
+            "image_id": 405513230041523,
+            "trace_id": "92342078-60a8-44ca-8a9b-c5fc22195e37",
+            "status": "completed",
+            "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F707d08dd-29ef-4a8c-814c-65438c13b61e.jpg",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "model": "qwen-image",
+            "width": 1920,
+            "height": 1080,
+            "created_at": "2026-05-30T07:41:01Z"
+          },
+          "output": {
+            "imageId": 405513230041523,
+            "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F707d08dd-29ef-4a8c-814c-65438c13b61e.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        }
+      ],
+      "videos": [
+        {
+          "id": "video_1",
+          "title": "AI face analysis feature demo for the landing page with premium storytelling",
+          "storyMode": "multi-shot",
+          "storyboard": [
+            "User uploads a refined selfie into the GlowUp interface with calm editorial framing",
+            "Elegant scan overlays map facial structure and skin insights with premium motion graphics",
+            "The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room"
+          ],
+          "status": "succeeded",
+          "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+          "startedAt": "2026-05-30T07:41:19.346Z",
+          "finishedAt": "2026-05-30T07:42:19.453Z",
+          "rawSubmit": {
+            "video_id": 405513271429973,
+            "trace_id": "7414e371-9edb-4b50-8426-02d390331af7",
+            "status": "submitted",
+            "cost_credits": 48,
+            "params": {
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "quality": "720p",
+              "create_count": 1,
+              "aspect_ratio": "16:9",
+              "multi_shot": 1
+            }
+          },
+          "rawResult": {
+            "id": 405513271429973,
+            "type": "video",
+            "status": "completed",
+            "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ff99996f9-53b6-4265-9930-f3e557478a74_seed0.mp4",
+            "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fd85aaeda-ce02-46d9-bec1-3ede7ea98150.jpg",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "model": "v6",
+            "duration": 6,
+            "created_at": "2026-05-30T07:41:21Z"
+          },
+          "output": {
+            "videoId": 405513271429973,
+            "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ff99996f9-53b6-4265-9930-f3e557478a74_seed0.mp4",
+            "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fd85aaeda-ce02-46d9-bec1-3ede7ea98150.jpg"
+          }
+        }
+      ],
+      "docsArchivePath": "../../docs/ai/generated/marketing-assets.archive.json",
+      "docsLatestPath": "../../docs/ai/generated/marketing-assets.latest.json"
+    },
+    "startedAt": "2026-05-30T07:40:42.666Z",
+    "progress": {
+      "totalAssets": 3,
+      "doneAssets": 3
+    },
+    "finishedAt": "2026-05-30T07:42:19.464Z"
+  }
 }

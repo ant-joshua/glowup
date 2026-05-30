@@ -16,8 +16,10 @@ export type MarketingJobInput = {
   videoQuality: string;
   videoAspectRatio: string;
   videoDurationSec: number;
+  videoStoryMode: "single-shot" | "multi-shot";
   imageShots: string[];
   videoBeats: string[];
+  videoStoryboard: string[];
 };
 
 export type MarketingImageAsset = {
@@ -41,6 +43,8 @@ export type MarketingVideoAsset = {
   id: string;
   title: string;
   prompt: string;
+  storyMode?: "single-shot" | "multi-shot";
+  storyboard?: string[];
   status: MarketingJobStatus;
   startedAt?: string;
   finishedAt?: string;

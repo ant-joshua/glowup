@@ -9,3 +9,8 @@ Monorepo for Glowup OS.
 - `packages/`: Shared packages (types, UI, auth, database, etc.)
 - `infrastructure/`: IaC and deployment manifests
 
+## Key Docs
+
+- Trae workflow: [.trae/README.md](.trae/README.md)
+- Plan + spec runbook: [plan-spec-driven-development.md](docs/ai/Workflows/plan-spec-driven-development.md)
+- Codebase map: [Codebase-Map.md](docs/architecture/Codebase-Map.md)

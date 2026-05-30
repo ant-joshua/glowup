@@ -87,3 +87,12 @@ Marketing playground akan:
 - Poll status job lewat `/api/ai-studio/marketing/jobs/:jobId`
 - Menulis hasil manifest JSON ke `docs/ai/generated/marketing-assets.archive.json`
 - Menulis hasil terakhir ke `docs/ai/generated/marketing-assets.latest.json`
+- Membaca prompt library dari `docs/ai/generated/marketing-prompt-library.json`
+
+Reusable app endpoints di web:
+- `POST /api/marketing-assets/jobs`
+- `GET /api/marketing-assets/jobs/:jobId`
+- `GET /api/marketing-assets/archive`
+- `GET /api/marketing-assets/prompt-library`
+
+Dengan ini `/ai-studio/marketing` berfungsi sebagai playground, tapi fitur lain di app bisa generate marketing image/video langsung lewat endpoint reusable yang sama tanpa lewat route UI `/ai-studio`.

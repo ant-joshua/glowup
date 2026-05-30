@@ -1,5 +1,600 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-30T00:00:00.000Z",
-  "items": []
+  "updatedAt": "2026-05-30T07:42:19.466Z",
+  "items": [
+    {
+      "id": "marketing_1780126842651_8b1c531f",
+      "status": "succeeded",
+      "createdAt": "2026-05-30T07:40:42.653Z",
+      "input": {
+        "campaignName": "GlowUp AI Face Analysis Demo",
+        "productName": "GlowUp Editorial Platform",
+        "audience": "Landing page visitors curious about premium AI self-analysis",
+        "pageGoal": "Generate a dedicated feature-demo marketing asset for the AI face analysis flow",
+        "valueProp": "GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap",
+        "cta": "See your face analysis",
+        "visualStyle": "Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow",
+        "brandNotes": "Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.",
+        "imageModel": "qwen-image",
+        "imageQuality": "1080p",
+        "imageAspectRatio": "16:9",
+        "videoModel": "v6",
+        "videoQuality": "720p",
+        "videoAspectRatio": "16:9",
+        "videoDurationSec": 6,
+        "videoStoryMode": "multi-shot",
+        "imageShots": [
+          "AI face analysis landing visual with premium selfie upload framing and elegant insight overlays",
+          "Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition"
+        ],
+        "videoBeats": [
+          "AI face analysis feature demo for the landing page with premium storytelling"
+        ],
+        "videoStoryboard": [
+          "User uploads a refined selfie into the GlowUp interface with calm editorial framing",
+          "Elegant scan overlays map facial structure and skin insights with premium motion graphics",
+          "The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room"
+        ]
+      },
+      "output": {
+        "images": [
+          {
+            "id": "image_1",
+            "title": "AI face analysis landing visual with premium selfie upload framing and elegant insight overlays",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:40:42.674Z",
+            "finishedAt": "2026-05-30T07:40:59.297Z",
+            "rawSubmit": {
+              "image_id": 405513198236638,
+              "trace_id": "b369ad94-4963-4bf4-aea0-de2c821618d0",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F4d0adfb0-a23c-41da-850d-2d02e44efa80.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:40:45Z"
+            },
+            "output": {
+              "imageId": 405513198236638,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F4d0adfb0-a23c-41da-850d-2d02e44efa80.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          {
+            "id": "image_2",
+            "title": "Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:40:59.304Z",
+            "finishedAt": "2026-05-30T07:41:19.338Z",
+            "rawSubmit": {
+              "image_id": 405513230041523,
+              "trace_id": "92342078-60a8-44ca-8a9b-c5fc22195e37",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F707d08dd-29ef-4a8c-814c-65438c13b61e.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Shot focus: Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:41:01Z"
+            },
+            "output": {
+              "imageId": 405513230041523,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F707d08dd-29ef-4a8c-814c-65438c13b61e.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ],
+        "videos": [
+          {
+            "id": "video_1",
+            "title": "AI face analysis feature demo for the landing page with premium storytelling",
+            "storyMode": "multi-shot",
+            "storyboard": [
+              "User uploads a refined selfie into the GlowUp interface with calm editorial framing",
+              "Elegant scan overlays map facial structure and skin insights with premium motion graphics",
+              "The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room"
+            ],
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:41:19.346Z",
+            "finishedAt": "2026-05-30T07:42:19.453Z",
+            "rawSubmit": {
+              "video_id": 405513271429973,
+              "trace_id": "7414e371-9edb-4b50-8426-02d390331af7",
+              "status": "submitted",
+              "cost_credits": 48,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 6,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405513271429973,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ff99996f9-53b6-4265-9930-f3e557478a74_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fd85aaeda-ce02-46d9-bec1-3ede7ea98150.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp AI Face Analysis Demo. Audience: Landing page visitors curious about premium AI self-analysis. Page goal: Generate a dedicated feature-demo marketing asset for the AI face analysis flow. Value proposition: GlowUp turns one selfie into refined facial analysis, skin insight overlays, and a personal roadmap. CTA message: See your face analysis. Visual direction: Editorial luxury product demo, calm premium motion, believable interface framing, warm cream palette, terracotta glow. Brand notes: Keep the scan overlays elegant, informative, and premium. Avoid sci-fi clutter. Make the analysis feel aspirational and trustworthy.. Scene beat: AI face analysis feature demo for the landing page with premium storytelling. Supporting visual system: AI face analysis landing visual with premium selfie upload framing and elegant insight overlays, Feature still showing refined scan interface, score reveal, and roadmap hints in an editorial composition. Use multi-shot storytelling with clear sequential scenes for easy stitching. Scene 1: User uploads a refined selfie into the GlowUp interface with calm editorial framing. Scene 2: Elegant scan overlays map facial structure and skin insights with premium motion graphics. Scene 3: The analysis resolves into confidence-building recommendations and a roadmap reveal with CTA room. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "created_at": "2026-05-30T07:41:21Z"
+            },
+            "output": {
+              "videoId": 405513271429973,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ff99996f9-53b6-4265-9930-f3e557478a74_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fd85aaeda-ce02-46d9-bec1-3ede7ea98150.jpg"
+            }
+          }
+        ],
+        "docsArchivePath": "../../docs/ai/generated/marketing-assets.archive.json",
+        "docsLatestPath": "../../docs/ai/generated/marketing-assets.latest.json"
+      },
+      "startedAt": "2026-05-30T07:40:42.666Z",
+      "progress": {
+        "totalAssets": 3,
+        "doneAssets": 3
+      },
+      "finishedAt": "2026-05-30T07:42:19.464Z"
+    },
+    {
+      "id": "marketing_1780125394506_e1c73cf0",
+      "status": "succeeded",
+      "createdAt": "2026-05-30T07:16:34.506Z",
+      "input": {
+        "campaignName": "GlowUp Landing Hero Launch",
+        "productName": "GlowUp Editorial Platform",
+        "audience": "Style-conscious professionals exploring a premium self-improvement platform",
+        "pageGoal": "Turn landing page visitors into trial signups with a clear premium first impression",
+        "valueProp": "A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth",
+        "cta": "Start your editorial glow-up",
+        "visualStyle": "Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling",
+        "brandNotes": "Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.",
+        "imageModel": "qwen-image",
+        "imageQuality": "1080p",
+        "imageAspectRatio": "16:9",
+        "videoModel": "v6",
+        "videoQuality": "720p",
+        "videoAspectRatio": "16:9",
+        "videoDurationSec": 6,
+        "imageShots": [
+          "Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover",
+          "Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system"
+        ],
+        "videoBeats": [
+          "Cinematic reveal of the GlowUp interface and premium promise for the hero section",
+          "Elegant product montage showing skincare, outfit planning, and AI coaching before a CTA ending"
+        ]
+      },
+      "output": {
+        "images": [
+          {
+            "id": "image_1",
+            "title": "Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Shot focus: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:16:34.531Z",
+            "finishedAt": "2026-05-30T07:16:48.170Z",
+            "rawSubmit": {
+              "image_id": 405510230947655,
+              "trace_id": "55938d6d-8f05-4a39-a8a8-e62ebd2efc34",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F8d97c208-74c3-49e3-951b-b311d1d94a51.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Shot focus: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:16:36Z"
+            },
+            "output": {
+              "imageId": 405510230947655,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F8d97c208-74c3-49e3-951b-b311d1d94a51.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          {
+            "id": "image_2",
+            "title": "Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Shot focus: Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:16:48.178Z",
+            "finishedAt": "2026-05-30T07:17:02.000Z",
+            "rawSubmit": {
+              "image_id": 405510258791223,
+              "trace_id": "7fe64c5a-06e7-4e06-ad72-3fcf2b20d960",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2Fe59a05d8-7f58-48ce-b112-84cc0dfa1a6e.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Shot focus: Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:16:50Z"
+            },
+            "output": {
+              "imageId": 405510258791223,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2Fe59a05d8-7f58-48ce-b112-84cc0dfa1a6e.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ],
+        "videos": [
+          {
+            "id": "video_1",
+            "title": "Cinematic reveal of the GlowUp interface and premium promise for the hero section",
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Cinematic reveal of the GlowUp interface and premium promise for the hero section. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:17:02.007Z",
+            "finishedAt": "2026-05-30T07:17:52.265Z",
+            "rawSubmit": {
+              "video_id": 405510287041636,
+              "trace_id": "0f6ff93f-774e-42ea-9090-1291a0a89aef",
+              "status": "submitted",
+              "cost_credits": 48,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Cinematic reveal of the GlowUp interface and premium promise for the hero section. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 6,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405510287041636,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F7bccdf73-4b25-4fa0-b1b0-9bb34cd567f4_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F370b3956-d31b-48e8-8af4-3ad381d981db.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Cinematic reveal of the GlowUp interface and premium promise for the hero section. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "created_at": "2026-05-30T07:17:04Z"
+            },
+            "output": {
+              "videoId": 405510287041636,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F7bccdf73-4b25-4fa0-b1b0-9bb34cd567f4_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F370b3956-d31b-48e8-8af4-3ad381d981db.jpg"
+            }
+          },
+          {
+            "id": "video_2",
+            "title": "Elegant product montage showing skincare, outfit planning, and AI coaching before a CTA ending",
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Elegant product montage showing skincare, outfit planning, and AI coaching before a CTA ending. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:17:52.273Z",
+            "finishedAt": "2026-05-30T07:18:41.529Z",
+            "rawSubmit": {
+              "video_id": 405510389997396,
+              "trace_id": "23efef02-1021-41e0-8d0e-cde1d204e62c",
+              "status": "submitted",
+              "cost_credits": 48,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Elegant product montage showing skincare, outfit planning, and AI coaching before a CTA ending. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 6,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405510389997396,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Feb296662-6d9e-40c4-afd9-c6acc788901a_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F8ecfc53a-a4a5-4dcc-be00-fe56e0d0262c.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Hero Launch. Audience: Style-conscious professionals exploring a premium self-improvement platform. Page goal: Turn landing page visitors into trial signups with a clear premium first impression. Value proposition: A unified platform for wardrobe planning, skincare ritual design, and AI-led personal growth. CTA message: Start your editorial glow-up. Visual direction: Editorial luxury, warm cream palette, terracotta highlights, premium interface storytelling. Brand notes: Use elegant whitespace, refined serif-led hierarchy, glassy highlights, and a believable premium product aesthetic.. Scene beat: Elegant product montage showing skincare, outfit planning, and AI coaching before a CTA ending. Supporting visual system: Hero composition with premium laptop mockup and the GlowUp interface framed like a luxury editorial cover, Supporting still focused on wardrobe, skincare, and AI guidance as one seamless personal operating system. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "created_at": "2026-05-30T07:17:54Z"
+            },
+            "output": {
+              "videoId": 405510389997396,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Feb296662-6d9e-40c4-afd9-c6acc788901a_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F8ecfc53a-a4a5-4dcc-be00-fe56e0d0262c.jpg"
+            }
+          }
+        ],
+        "docsArchivePath": "../../docs/ai/generated/marketing-assets.archive.json",
+        "docsLatestPath": "../../docs/ai/generated/marketing-assets.latest.json"
+      },
+      "startedAt": "2026-05-30T07:16:34.521Z",
+      "progress": {
+        "totalAssets": 4,
+        "doneAssets": 4
+      },
+      "finishedAt": "2026-05-30T07:18:41.536Z"
+    },
+    {
+      "id": "marketing_1780125141772_abc36eea",
+      "status": "succeeded",
+      "createdAt": "2026-05-30T07:12:21.773Z",
+      "input": {
+        "campaignName": "GlowUp Editorial Landing Master",
+        "productName": "GlowUp Editorial Platform",
+        "audience": "Ambitious young professionals who want premium self-improvement guidance",
+        "pageGoal": "Create final landing-page-ready hero image and marketing video with stronger premium polish",
+        "valueProp": "GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform",
+        "cta": "Start your editorial glow-up",
+        "visualStyle": "Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p",
+        "brandNotes": "Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.",
+        "imageModel": "qwen-image",
+        "imageQuality": "1080p",
+        "imageAspectRatio": "16:9",
+        "videoModel": "v6",
+        "videoQuality": "720p",
+        "videoAspectRatio": "16:9",
+        "videoDurationSec": 6,
+        "imageShots": [
+          "Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition",
+          "Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial"
+        ],
+        "videoBeats": [
+          "Cinematic hero reveal of the GlowUp platform and premium promise for the landing page hero section",
+          "Elegant product story beat moving through skincare ritual guidance, outfit intelligence, and AI coaching before ending on a strong CTA moment"
+        ]
+      },
+      "output": {
+        "images": [
+          {
+            "id": "image_1",
+            "title": "Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Shot focus: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:12:21.788Z",
+            "finishedAt": "2026-05-30T07:12:35.163Z",
+            "rawSubmit": {
+              "image_id": 405509712839748,
+              "trace_id": "87b0f5d5-0ed2-464f-88b1-eb53147b74a3",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F66a9cf8e-c2e0-4eb1-aa23-c3af511433aa.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Shot focus: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:12:23Z"
+            },
+            "output": {
+              "imageId": 405509712839748,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F66a9cf8e-c2e0-4eb1-aa23-c3af511433aa.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          {
+            "id": "image_2",
+            "title": "Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Shot focus: Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:12:35.172Z",
+            "finishedAt": "2026-05-30T07:12:48.380Z",
+            "rawSubmit": {
+              "image_id": 405509739916963,
+              "trace_id": "25826303-ce14-475e-a51b-eb24700a98ae",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F20fff53e-4e52-406f-be70-da23629cbd2d.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Shot focus: Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:12:37Z"
+            },
+            "output": {
+              "imageId": 405509739916963,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2F20fff53e-4e52-406f-be70-da23629cbd2d.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ],
+        "videos": [
+          {
+            "id": "video_1",
+            "title": "Cinematic hero reveal of the GlowUp platform and premium promise for the landing page hero section",
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Cinematic hero reveal of the GlowUp platform and premium promise for the landing page hero section. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:12:48.390Z",
+            "finishedAt": "2026-05-30T07:13:42.813Z",
+            "rawSubmit": {
+              "video_id": 405509766820970,
+              "trace_id": "7f6a2469-9d99-4d9a-810e-f384581ed791",
+              "status": "submitted",
+              "cost_credits": 48,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Cinematic hero reveal of the GlowUp platform and premium promise for the landing page hero section. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 6,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405509766820970,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fe40fbf28-083e-407e-8b87-a19f052dd2ae_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F12141eed-9200-45e5-8770-da6056fca194.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Cinematic hero reveal of the GlowUp platform and premium promise for the landing page hero section. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "created_at": "2026-05-30T07:12:50Z"
+            },
+            "output": {
+              "videoId": 405509766820970,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fe40fbf28-083e-407e-8b87-a19f052dd2ae_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F12141eed-9200-45e5-8770-da6056fca194.jpg"
+            }
+          },
+          {
+            "id": "video_2",
+            "title": "Elegant product story beat moving through skincare ritual guidance, outfit intelligence, and AI coaching before ending on a strong CTA moment",
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Elegant product story beat moving through skincare ritual guidance, outfit intelligence, and AI coaching before ending on a strong CTA moment. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:13:42.819Z",
+            "finishedAt": "2026-05-30T07:14:36.947Z",
+            "rawSubmit": {
+              "video_id": 405509878633558,
+              "trace_id": "3a84cf36-2ee7-4c62-bb5c-73be87b9c43a",
+              "status": "submitted",
+              "cost_credits": 48,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Elegant product story beat moving through skincare ritual guidance, outfit intelligence, and AI coaching before ending on a strong CTA moment. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 6,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405509878633558,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F38d7cbd4-93dc-473d-add9-333174a79b06_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fa732ed43-1797-481c-b539-4a91521efd03.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Editorial Landing Master. Audience: Ambitious young professionals who want premium self-improvement guidance. Page goal: Create final landing-page-ready hero image and marketing video with stronger premium polish. Value proposition: GlowUp unifies wardrobe planning, skincare rituals, and AI-led personal growth inside one editorial-grade platform. CTA message: Start your editorial glow-up. Visual direction: Luxury editorial campaign, warm cream and stone palette, terracotta accents, glassmorphism highlights, refined serif-led brand world, cinematic yet believable p. Brand notes: Prioritize elegant whitespace, premium interface framing, calm confidence, magazine-like composition, expensive but approachable atmosphere. Avoid generic flashy AI aesthetics.. Scene beat: Elegant product story beat moving through skincare ritual guidance, outfit intelligence, and AI coaching before ending on a strong CTA moment. Supporting visual system: Hero still featuring the GlowUp interface on a refined premium laptop, editorial layout, soft natural light, generous negative space, luxury landing page composition, Support still showing the GlowUp world with skincare, wardrobe planning, and AI coach motifs arranged like a premium campaign editorial. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 6,
+              "created_at": "2026-05-30T07:13:44Z"
+            },
+            "output": {
+              "videoId": 405509878633558,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F38d7cbd4-93dc-473d-add9-333174a79b06_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fa732ed43-1797-481c-b539-4a91521efd03.jpg"
+            }
+          }
+        ],
+        "docsArchivePath": "../../docs/ai/generated/marketing-assets.archive.json",
+        "docsLatestPath": "../../docs/ai/generated/marketing-assets.latest.json"
+      },
+      "startedAt": "2026-05-30T07:12:21.781Z",
+      "progress": {
+        "totalAssets": 4,
+        "doneAssets": 4
+      },
+      "finishedAt": "2026-05-30T07:14:36.952Z"
+    },
+    {
+      "id": "marketing_1780124807303_9b0d304e",
+      "status": "succeeded",
+      "createdAt": "2026-05-30T07:06:47.306Z",
+      "input": {
+        "campaignName": "GlowUp Landing Smoke Test",
+        "productName": "GlowUp Editorial Platform",
+        "audience": "Landing page visitors",
+        "pageGoal": "Smoke test direct marketing asset generation",
+        "valueProp": "Unified wardrobe, skincare, and AI guidance in one premium platform",
+        "cta": "Start your glow-up",
+        "visualStyle": "Editorial luxury, warm cream palette, refined product storytelling",
+        "brandNotes": "Keep it believable, premium, and conversion-focused.",
+        "imageModel": "qwen-image",
+        "imageQuality": "1080p",
+        "imageAspectRatio": "16:9",
+        "videoModel": "v6",
+        "videoQuality": "720p",
+        "videoAspectRatio": "16:9",
+        "videoDurationSec": 5,
+        "imageShots": [
+          "Hero still with product interface and editorial composition"
+        ],
+        "videoBeats": [
+          "Short cinematic hero reveal for the landing page"
+        ]
+      },
+      "output": {
+        "images": [
+          {
+            "id": "image_1",
+            "title": "Hero still with product interface and editorial composition",
+            "status": "succeeded",
+            "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Smoke Test. Audience: Landing page visitors. Page goal: Smoke test direct marketing asset generation. Value proposition: Unified wardrobe, skincare, and AI guidance in one premium platform. CTA message: Start your glow-up. Visual direction: Editorial luxury, warm cream palette, refined product storytelling. Brand notes: Keep it believable, premium, and conversion-focused.. Shot focus: Hero still with product interface and editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+            "startedAt": "2026-05-30T07:06:47.325Z",
+            "finishedAt": "2026-05-30T07:07:00.476Z",
+            "rawSubmit": {
+              "image_id": 405509027546106,
+              "trace_id": "19f2caa7-8944-4fab-a072-af8e30a3ffe0",
+              "status": "completed",
+              "image_url": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2Fd74eb632-b352-4fbe-88fa-b9ab227077f6.jpg",
+              "prompt": "Landing page marketing still for GlowUp Editorial Platform. Campaign: GlowUp Landing Smoke Test. Audience: Landing page visitors. Page goal: Smoke test direct marketing asset generation. Value proposition: Unified wardrobe, skincare, and AI guidance in one premium platform. CTA message: Start your glow-up. Visual direction: Editorial luxury, warm cream palette, refined product storytelling. Brand notes: Keep it believable, premium, and conversion-focused.. Shot focus: Hero still with product interface and editorial composition. Luxury editorial composition, premium product marketing, refined lighting, highly usable as landing page visual.",
+              "model": "qwen-image",
+              "width": 1920,
+              "height": 1080,
+              "created_at": "2026-05-30T07:06:49Z"
+            },
+            "output": {
+              "imageId": 405509027546106,
+              "imageUrl": "https://media.pixverse.ai/pixverse%2Ft2i%2Fori%2Fd74eb632-b352-4fbe-88fa-b9ab227077f6.jpg",
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ],
+        "videos": [
+          {
+            "id": "video_1",
+            "title": "Short cinematic hero reveal for the landing page",
+            "status": "succeeded",
+            "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Smoke Test. Audience: Landing page visitors. Page goal: Smoke test direct marketing asset generation. Value proposition: Unified wardrobe, skincare, and AI guidance in one premium platform. CTA message: Start your glow-up. Visual direction: Editorial luxury, warm cream palette, refined product storytelling. Brand notes: Keep it believable, premium, and conversion-focused.. Scene beat: Short cinematic hero reveal for the landing page. Supporting visual system: Hero still with product interface and editorial composition. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+            "startedAt": "2026-05-30T07:07:00.481Z",
+            "finishedAt": "2026-05-30T07:07:43.721Z",
+            "rawSubmit": {
+              "video_id": 405509054065534,
+              "trace_id": "0e982839-0a34-476e-95eb-e9e8d06013fb",
+              "status": "submitted",
+              "cost_credits": 40,
+              "params": {
+                "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Smoke Test. Audience: Landing page visitors. Page goal: Smoke test direct marketing asset generation. Value proposition: Unified wardrobe, skincare, and AI guidance in one premium platform. CTA message: Start your glow-up. Visual direction: Editorial luxury, warm cream palette, refined product storytelling. Brand notes: Keep it believable, premium, and conversion-focused.. Scene beat: Short cinematic hero reveal for the landing page. Supporting visual system: Hero still with product interface and editorial composition. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+                "model": "v6",
+                "duration": 5,
+                "quality": "720p",
+                "create_count": 1,
+                "aspect_ratio": "16:9",
+                "multi_shot": 1
+              }
+            },
+            "rawResult": {
+              "id": 405509054065534,
+              "type": "video",
+              "status": "completed",
+              "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fd3dc413d-30fd-46c7-a125-e24ed61416ac_seed0.mp4",
+              "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fc31bc5de-dc43-45ce-8b68-5ce89f166f4e.jpg",
+              "prompt": "Landing page marketing video clip for GlowUp Editorial Platform. Campaign: GlowUp Landing Smoke Test. Audience: Landing page visitors. Page goal: Smoke test direct marketing asset generation. Value proposition: Unified wardrobe, skincare, and AI guidance in one premium platform. CTA message: Start your glow-up. Visual direction: Editorial luxury, warm cream palette, refined product storytelling. Brand notes: Keep it believable, premium, and conversion-focused.. Scene beat: Short cinematic hero reveal for the landing page. Supporting visual system: Hero still with product interface and editorial composition. Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
+              "model": "v6",
+              "duration": 5,
+              "created_at": "2026-05-30T07:07:02Z"
+            },
+            "output": {
+              "videoId": 405509054065534,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fd3dc413d-30fd-46c7-a125-e24ed61416ac_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fc31bc5de-dc43-45ce-8b68-5ce89f166f4e.jpg"
+            }
+          }
+        ],
+        "docsArchivePath": "../../docs/ai/generated/marketing-assets.archive.json",
+        "docsLatestPath": "../../docs/ai/generated/marketing-assets.latest.json"
+      },
+      "startedAt": "2026-05-30T07:06:47.320Z",
+      "progress": {
+        "totalAssets": 2,
+        "doneAssets": 2
+      },
+      "finishedAt": "2026-05-30T07:07:43.734Z"
+    }
+  ]
 }

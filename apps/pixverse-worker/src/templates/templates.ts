@@ -2,6 +2,46 @@ import type { Template } from "../jobs/types";
 
 export const templates: Template[] = [
   {
+    id: "glowup-investor-demo-landscape-v1",
+    title: "GlowUp Investor Demo (Landscape)",
+    description:
+      "Multi-scene investor-ready montage covering GlowUp analysis, skincare, outfits, brand growth, creators, and commerce.",
+    fields: [
+      {
+        key: "platform",
+        label: "Platform",
+        type: "select",
+        required: true,
+        options: ["Landing Page", "Investor Deck", "YouTube"],
+      },
+      {
+        key: "tone",
+        label: "Tone",
+        type: "select",
+        required: true,
+        options: ["Editorial", "Confident", "Cinematic", "Minimal"],
+      },
+      { key: "steps", label: "Storyboard scenes", type: "list", required: true },
+      {
+        key: "sceneDurationSec",
+        label: "Scene duration",
+        type: "select",
+        required: true,
+        options: ["5", "6", "7", "8", "9", "10"],
+      },
+    ],
+    defaults: {
+      model: "v6",
+      quality: "720p",
+      aspectRatio: "16:9",
+      durationSec: 6,
+      audio: true,
+      multiShot: true,
+    },
+    promptTemplate:
+      "Scene {sceneIndex}/{sceneTotal}: {scene}. Investor demo montage for GlowUp. Show premium editorial product storytelling that clearly communicates the product in under one minute. Cover: selfie upload, face analysis overlays, skincare ritual design, outfit intelligence, personal branding glow-up, creator routine feed, affiliate commerce checkout, and a confident CTA. Tone: {tone}. Platform: {platform}. Aspect ratio {aspectRatio}. Clean premium UI overlays, warm cream palette, terracotta accents, smooth camera language, tasteful motion graphics.",
+  },
+  {
     id: "skincare-routine-editorial-v1",
     title: "Skincare Routine Editorial",
     description:

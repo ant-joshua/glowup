@@ -152,12 +152,23 @@ function getSceneDurationSec(
 }
 
 function getScenes(variables: Record<string, unknown>) {
-  const steps = variables.steps;
-  if (!Array.isArray(steps)) return [];
-  return steps
-    .map((s) => String(s).trim())
-    .filter(Boolean)
-    .slice(0, 12);
+  const candidates = [
+    { key: "steps", max: 12 },
+    { key: "pieces", max: 10 },
+    { key: "fitHighlights", max: 10 },
+  ] as const;
+
+  for (const cand of candidates) {
+    const v = variables[cand.key];
+    if (!Array.isArray(v)) continue;
+    const list = v
+      .map((s) => String(s).trim())
+      .filter(Boolean)
+      .slice(0, cand.max);
+    if (list.length > 0) return list;
+  }
+
+  return [];
 }
 
 function clampList(values: unknown, fallback: string[]) {
@@ -233,6 +244,8 @@ function normalizeMarketingInput(raw: unknown): MarketingJobInput | null {
       ? rec.videoDurationSec
       : Number(rec.videoDurationSec ?? 6);
   const videoDurationSec = clampDuration(videoDurationSecRaw);
+  const videoStoryMode =
+    rec.videoStoryMode === "single-shot" ? "single-shot" : "multi-shot";
   const imageShots = clampList(rec.imageShots, [
     "Hero product composition with generous negative space",
     "Feature detail still showing premium material and interface polish",
@@ -241,6 +254,11 @@ function normalizeMarketingInput(raw: unknown): MarketingJobInput | null {
     "Hero reveal of the product and promise",
     "Fast proof beat showing the key benefit and CTA",
   ]);
+  const videoStoryboard = clampList(rec.videoStoryboard, [
+    "Opening editorial hero reveal with premium product framing",
+    "Mid-scene proof moment showing GlowUp modules and user transformation cues",
+    "Closing CTA scene with calm confidence and clear landing page intent",
+  ]).slice(0, 6);
 
   if (
     !campaignName ||
@@ -270,8 +288,10 @@ function normalizeMarketingInput(raw: unknown): MarketingJobInput | null {
     videoQuality,
     videoAspectRatio,
     videoDurationSec,
+    videoStoryMode,
     imageShots,
     videoBeats,
+    videoStoryboard,
   };
 }
 
@@ -297,21 +317,17 @@ function renderScenePrompt({
   sceneIndex: number;
   sceneTotal: number;
 }) {
-  const merged: Record<string, unknown> = {
-    ...variables,
-    aspectRatio: template.defaults?.aspectRatio ?? "",
-    scene,
-    sceneIndex: String(sceneIndex),
-    sceneTotal: String(sceneTotal),
-  };
-
-  const steps = merged.steps;
-  if (Array.isArray(steps)) {
-    merged.steps = steps
-      .map((s) => String(s))
-      .filter(Boolean)
-      .join(", ");
+  const merged: Record<string, unknown> = { ...variables };
+  for (const [k, v] of Object.entries(merged)) {
+    if (Array.isArray(v)) {
+      merged[k] = v.map((s) => String(s).trim()).filter(Boolean).join(", ");
+    }
   }
+
+  merged.aspectRatio = template.defaults?.aspectRatio ?? "";
+  merged.scene = scene;
+  merged.sceneIndex = String(sceneIndex);
+  merged.sceneTotal = String(sceneTotal);
 
   return template.promptTemplate.replace(
     /\{([a-zA-Z0-9_]+)\}/g,
@@ -664,7 +680,7 @@ async function runMarketingJob(jobId: string) {
         aspectRatio: job.input.videoAspectRatio,
         durationSec: job.input.videoDurationSec,
         audio: false,
-        multiShot: true,
+        multiShot: job.input.videoStoryMode !== "single-shot",
       },
       timeoutSec,
       durationSec: job.input.videoDurationSec,

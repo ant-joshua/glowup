@@ -2,12 +2,14 @@
 
 import {
   ArrowUpRight,
+  BookmarkPlus,
   Copy,
   Download,
   FileJson,
   ImageIcon,
   RefreshCcw,
   Sparkles,
+  Trash2,
   Video,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -32,8 +34,10 @@ type MarketingFormState = {
   videoQuality: string;
   videoAspectRatio: string;
   videoDurationSec: string;
+  videoStoryMode: "single-shot" | "multi-shot";
   imageShotsRaw: string;
   videoBeatsRaw: string;
+  videoStoryboardRaw: string;
 };
 
 type MarketingAssetJob = {
@@ -57,8 +61,10 @@ type MarketingAssetJob = {
     videoQuality?: string;
     videoAspectRatio?: string;
     videoDurationSec?: number;
+    videoStoryMode?: "single-shot" | "multi-shot";
     imageShots?: string[];
     videoBeats?: string[];
+    videoStoryboard?: string[];
   };
   progress?: {
     totalAssets: number;
@@ -69,6 +75,8 @@ type MarketingAssetJob = {
       id: string;
       title: string;
       prompt: string;
+      storyMode?: "single-shot" | "multi-shot";
+      storyboard?: string[];
       status: string;
       output?: {
         imageId?: number;
@@ -121,6 +129,27 @@ type PromptExample = {
   prompt: string;
 };
 
+type PromptLibraryCollection = {
+  id: string;
+  title: string;
+  description: string;
+  items: PromptExample[];
+};
+
+type PromptLibraryResponse = {
+  ok: boolean;
+  version?: number;
+  updatedAt?: string;
+  collections?: PromptLibraryCollection[];
+};
+
+type CustomPreset = {
+  id: string;
+  name: string;
+  createdAt: string;
+  values: MarketingFormState;
+};
+
 const DEFAULT_FORM: MarketingFormState = {
   campaignName: "The Digital Atelier Launch",
   productName: "GlowUp Editorial Platform",
@@ -141,10 +170,13 @@ const DEFAULT_FORM: MarketingFormState = {
   videoQuality: "720p",
   videoAspectRatio: "16:9",
   videoDurationSec: "6",
+  videoStoryMode: "multi-shot",
   imageShotsRaw:
     "Hero composition introducing the GlowUp platform on a premium laptop mockup\nProduct detail still with skincare, wardrobe, and AI planning cues\nLifestyle landing page visual showing confident transformation and editorial calm",
   videoBeatsRaw:
     "Cinematic hero reveal of the GlowUp promise and interface\nFast benefit montage covering skincare, outfit planning, and AI coaching\nElegant CTA beat for the landing page hero section",
+  videoStoryboardRaw:
+    "Open on a premium editorial hero composition with the GlowUp interface entering frame\nMove into a sequence showing skincare guidance, outfit planning, and AI coaching as connected story beats\nEnd on a calm but persuasive CTA shot for the landing page hero",
 };
 
 const MARKETING_PRESETS: Array<{
@@ -188,10 +220,13 @@ const MARKETING_PRESETS: Array<{
       videoQuality: "720p",
       videoAspectRatio: "16:9",
       videoDurationSec: "6",
+      videoStoryMode: "multi-shot",
       imageShotsRaw:
         "Structured feature grid visual highlighting wardrobe, skincare, and AI coach modules\nPremium product dashboard close-up with typography and tonal layering\nConversion-focused proof visual with key outcomes and elegant supporting objects",
       videoBeatsRaw:
         "Opening product overview showing the connected GlowUp ecosystem\nFeature proof montage focused on wardrobe, skincare, and coaching outputs\nFinal CTA beat that transitions naturally into the signup section",
+      videoStoryboardRaw:
+        "Start with a composed overview of the GlowUp ecosystem and premium UI\nCut through feature proof scenes for wardrobe, skincare, and AI planning\nResolve with a conversion-focused CTA moment anchored in clarity and confidence",
     },
   },
   {
@@ -221,15 +256,19 @@ const MARKETING_PRESETS: Array<{
       videoQuality: "720p",
       videoAspectRatio: "16:9",
       videoDurationSec: "6",
+      videoStoryMode: "multi-shot",
       imageShotsRaw:
         "Aspirational lifestyle hero showing the GlowUp world and premium atmosphere\nLanding page teaser still with elegant headline room and CTA placement\nProduct plus lifestyle blend visual that feels social-first but reusable on-site",
       videoBeatsRaw:
         "Fast social opener with editorial intrigue and product promise\nBridge scene connecting lifestyle aspiration to the GlowUp interface\nLanding-page-ready CTA beat with premium motion and breathing space",
+      videoStoryboardRaw:
+        "Open with social-first intrigue and strong editorial motion\nTransition into a product-lifestyle bridge that frames the GlowUp interface as the answer\nFinish on a polished landing CTA shot with breathing room for copy",
     },
   },
 ];
 
 const ACTIVE_STATUSES = new Set(["queued", "running"]);
+const CUSTOM_PRESET_STORAGE_KEY = "marketing-asset-playground:presets";
 const STATUS_FILTERS = [
   "all",
   "queued",
@@ -280,6 +319,14 @@ function jsonPreview(value: unknown) {
   return JSON.stringify(value, null, 2);
 }
 
+function safeParseJson(input: string): unknown {
+  try {
+    return JSON.parse(input) as unknown;
+  } catch {
+    return null;
+  }
+}
+
 function formFromJob(job: MarketingAssetJob): MarketingFormState | null {
   const input = job.input;
 
@@ -309,8 +356,10 @@ function formFromJob(job: MarketingAssetJob): MarketingFormState | null {
     videoQuality: input.videoQuality ?? "720p",
     videoAspectRatio: input.videoAspectRatio ?? "16:9",
     videoDurationSec: String(input.videoDurationSec ?? 6),
+    videoStoryMode: input.videoStoryMode ?? "multi-shot",
     imageShotsRaw: (input.imageShots ?? []).join("\n"),
     videoBeatsRaw: (input.videoBeats ?? []).join("\n"),
+    videoStoryboardRaw: (input.videoStoryboard ?? []).join("\n"),
   };
 }
 
@@ -322,6 +371,14 @@ function buildPromptPack(job: MarketingAssetJob | null) {
   const lines = [
     `Campaign: ${job.input.campaignName}`,
     `Product: ${job.input.productName}`,
+    `Story mode: ${job.input.videoStoryMode ?? "multi-shot"}`,
+    "",
+    "Storyboard:",
+    ...((job.input.videoStoryboard ?? []).length > 0
+      ? (job.input.videoStoryboard ?? []).map(
+          (scene, index) => `${index + 1}. ${scene}`,
+        )
+      : ["1. Default editorial product story"]),
     "",
     "Image Prompts:",
     ...(job.output?.images ?? []).flatMap((image, index) => [
@@ -357,6 +414,12 @@ export function MarketingAssetPlaygroundClient() {
   const [archiveQuery, setArchiveQuery] = useState("");
   const [archiveStatus, setArchiveStatus] =
     useState<(typeof STATUS_FILTERS)[number]>("all");
+  const [promptCollections, setPromptCollections] = useState<
+    PromptLibraryCollection[]
+  >([]);
+  const [loadingPromptLibrary, setLoadingPromptLibrary] = useState(true);
+  const [customPresets, setCustomPresets] = useState<CustomPreset[]>([]);
+  const [presetName, setPresetName] = useState("");
 
   async function loadArchive() {
     setLoadingArchive(true);
@@ -388,6 +451,82 @@ export function MarketingAssetPlaygroundClient() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       void loadArchive();
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPromptLibrary = async () => {
+      setLoadingPromptLibrary(true);
+
+      try {
+        const res = await fetch("/api/ai-studio/marketing/prompt-library", {
+          cache: "no-store",
+        });
+        const data = (await res.json()) as PromptLibraryResponse;
+
+        if (!res.ok || data.ok !== true || !Array.isArray(data.collections)) {
+          throw new Error("Gagal memuat prompt library.");
+        }
+
+        if (!cancelled) {
+          setPromptCollections(data.collections);
+        }
+      } catch {
+        if (!cancelled) {
+          setPromptCollections([
+            {
+              id: "fallback-library",
+              title: "Prompt Examples",
+              description:
+                "Fallback examples for fast testing inside the playground.",
+              items: PROMPT_EXAMPLES,
+            },
+          ]);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoadingPromptLibrary(false);
+        }
+      }
+    };
+
+    void loadPromptLibrary();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const raw = window.localStorage.getItem(CUSTOM_PRESET_STORAGE_KEY);
+    if (!raw) {
+      return;
+    }
+
+    const parsed = safeParseJson(raw);
+    if (!Array.isArray(parsed)) {
+      return;
+    }
+
+    const nextPresets = parsed.filter((item): item is CustomPreset => {
+      return Boolean(
+        item &&
+        typeof item === "object" &&
+        "id" in item &&
+        "name" in item &&
+        "createdAt" in item &&
+        "values" in item,
+      );
+    });
+
+    const timer = window.setTimeout(() => {
+      setCustomPresets(nextPresets);
     }, 0);
 
     return () => {
@@ -461,13 +600,54 @@ export function MarketingAssetPlaygroundClient() {
       Boolean(form.cta.trim()) &&
       Boolean(form.visualStyle.trim()) &&
       splitLines(form.imageShotsRaw).length > 0 &&
-      splitLines(form.videoBeatsRaw).length > 0
+      splitLines(form.videoBeatsRaw).length > 0 &&
+      splitLines(form.videoStoryboardRaw).length > 0
     );
   }, [form, submitting]);
 
   function applyPreset(values: MarketingFormState) {
     setForm(values);
     setFeedback("Preset applied");
+  }
+
+  function persistCustomPresets(nextPresets: CustomPreset[]) {
+    setCustomPresets(nextPresets);
+    window.localStorage.setItem(
+      CUSTOM_PRESET_STORAGE_KEY,
+      JSON.stringify(nextPresets),
+    );
+  }
+
+  function handleSaveCurrentPreset() {
+    const name = presetName.trim() || form.campaignName.trim();
+
+    if (!name) {
+      setFeedback("Isi nama preset dulu");
+      return;
+    }
+
+    const newPreset: CustomPreset = {
+      id: `preset_${Date.now()}`,
+      name,
+      createdAt: new Date().toISOString(),
+      values: { ...form },
+    };
+
+    persistCustomPresets([newPreset, ...customPresets].slice(0, 12));
+    setPresetName("");
+    setFeedback("Custom preset saved");
+  }
+
+  function handleDeleteCustomPreset(presetId: string) {
+    persistCustomPresets(
+      customPresets.filter((preset) => preset.id !== presetId),
+    );
+    setFeedback("Custom preset deleted");
+  }
+
+  function handleApplyCustomPreset(preset: CustomPreset) {
+    setForm(preset.values);
+    setFeedback("Custom preset applied");
   }
 
   async function submitPayload(payload: {
@@ -486,8 +666,10 @@ export function MarketingAssetPlaygroundClient() {
     videoQuality: string;
     videoAspectRatio: string;
     videoDurationSec: number;
+    videoStoryMode: "single-shot" | "multi-shot";
     imageShots: string[];
     videoBeats: string[];
+    videoStoryboard: string[];
   }) {
     const res = await fetch("/api/ai-studio/marketing/jobs", {
       method: "POST",
@@ -587,8 +769,10 @@ export function MarketingAssetPlaygroundClient() {
         videoQuality: nextForm.videoQuality,
         videoAspectRatio: nextForm.videoAspectRatio,
         videoDurationSec: Number(nextForm.videoDurationSec),
+        videoStoryMode: nextForm.videoStoryMode,
         imageShots: splitLines(nextForm.imageShotsRaw),
         videoBeats: splitLines(nextForm.videoBeatsRaw),
+        videoStoryboard: splitLines(nextForm.videoStoryboardRaw),
       });
       setFeedback("Archive regenerated");
     } catch (submitError) {
@@ -628,8 +812,10 @@ export function MarketingAssetPlaygroundClient() {
         videoQuality: form.videoQuality,
         videoAspectRatio: form.videoAspectRatio,
         videoDurationSec: Number(form.videoDurationSec),
+        videoStoryMode: form.videoStoryMode,
         imageShots: splitLines(form.imageShotsRaw),
         videoBeats: splitLines(form.videoBeatsRaw),
+        videoStoryboard: splitLines(form.videoStoryboardRaw),
       });
     } catch (submitError) {
       setError(
@@ -662,6 +848,18 @@ export function MarketingAssetPlaygroundClient() {
 
     return matchesStatus && (!query || haystack.includes(query));
   });
+  const visiblePromptCollections =
+    promptCollections.length > 0
+      ? promptCollections
+      : [
+          {
+            id: "fallback-library",
+            title: "Prompt Examples",
+            description:
+              "Fallback examples for fast testing inside the playground.",
+            items: PROMPT_EXAMPLES,
+          },
+        ];
 
   return (
     <section className="grid gap-5 xl:grid-cols-[1.12fr_0.88fr]">
@@ -762,6 +960,77 @@ export function MarketingAssetPlaygroundClient() {
                 ))}
               </div>
 
+              <div className="mb-4 rounded-[1.75rem] bg-surface-container-lowest p-5 shadow-ambient-sm">
+                <div className="flex flex-wrap items-end gap-3">
+                  <label className="grid min-w-55 flex-1 gap-2">
+                    <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                      Save current brief as preset
+                    </span>
+                    <input
+                      value={presetName}
+                      onChange={(event) => setPresetName(event.target.value)}
+                      placeholder="Preset name, e.g. Hero Launch Pack"
+                      className="min-h-12 rounded-2xl bg-surface-container-highest px-4 py-3 text-sm text-on-surface outline-none transition focus:bg-surface focus:ring-2 focus:ring-primary/20"
+                    />
+                  </label>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={handleSaveCurrentPreset}
+                  >
+                    <BookmarkPlus className="mr-2 h-4 w-4" />
+                    Save preset
+                  </Button>
+                </div>
+
+                <div className="mt-5 grid gap-3 lg:grid-cols-3">
+                  {customPresets.map((preset) => (
+                    <div
+                      key={preset.id}
+                      className="rounded-[1.2rem] bg-surface px-4 py-4"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                            Custom Preset
+                          </p>
+                          <h3 className="mt-2 font-serif text-2xl text-on-surface">
+                            {preset.name}
+                          </h3>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteCustomPreset(preset.id)}
+                          className="rounded-full bg-surface-container-low p-2 text-secondary transition hover:bg-primary/8 hover:text-primary"
+                          aria-label={`Delete ${preset.name}`}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <p className="mt-3 line-clamp-3 text-sm leading-6 text-on-surface/75">
+                        {preset.values.valueProp}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => handleApplyCustomPreset(preset)}
+                        >
+                          Apply preset
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                  {customPresets.length === 0 ? (
+                    <div className="rounded-[1.2rem] bg-surface px-4 py-5 text-sm leading-6 text-secondary lg:col-span-3">
+                      Simpan brief yang bagus sebagai preset lokal supaya tim
+                      bisa reuse cepat di browser ini.
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
               <form
                 onSubmit={onSubmit}
                 className="rounded-[1.75rem] bg-surface-container-lowest p-5 shadow-ambient-sm"
@@ -823,6 +1092,37 @@ export function MarketingAssetPlaygroundClient() {
                   ))}
                 </div>
 
+                <div className="mt-4 grid gap-4 md:grid-cols-[0.7fr_1.3fr]">
+                  <label className="grid gap-2">
+                    <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                      Story mode
+                    </span>
+                    <select
+                      value={form.videoStoryMode}
+                      onChange={(event) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          videoStoryMode: event.target.value as
+                            | "single-shot"
+                            | "multi-shot",
+                        }))
+                      }
+                      className="min-h-13 rounded-2xl bg-surface-container-highest px-4 py-3 text-sm text-on-surface outline-none transition focus:bg-surface focus:ring-2 focus:ring-primary/20"
+                    >
+                      <option value="multi-shot">
+                        Multi-shot storytelling
+                      </option>
+                      <option value="single-shot">Single-shot cinematic</option>
+                    </select>
+                  </label>
+
+                  <div className="rounded-[1.3rem] bg-surface px-4 py-4 text-sm leading-6 text-on-surface/75">
+                    {form.videoStoryMode === "multi-shot"
+                      ? "PixVerse akan diarahkan membuat beberapa scene berurutan dari satu prompt, cocok buat short ad, montage, dan stitched hero film."
+                      : "PixVerse akan diarahkan ke satu shot sinematik yang konsisten, cocok untuk reveal clip yang lebih tenang dan mewah."}
+                  </div>
+                </div>
+
                 <div className="mt-4 grid gap-4 md:grid-cols-2">
                   <label className="grid gap-2">
                     <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
@@ -859,6 +1159,25 @@ export function MarketingAssetPlaygroundClient() {
                   </label>
                 </div>
 
+                <div className="mt-4">
+                  <label className="grid gap-2">
+                    <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                      Storyboard scenes
+                    </span>
+                    <textarea
+                      rows={4}
+                      value={form.videoStoryboardRaw}
+                      onChange={(event) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          videoStoryboardRaw: event.target.value,
+                        }))
+                      }
+                      className="rounded-2xl bg-surface-container-highest px-4 py-3 text-sm leading-6 text-on-surface outline-none transition focus:bg-surface focus:ring-2 focus:ring-primary/20"
+                    />
+                  </label>
+                </div>
+
                 <div className="mt-5 flex flex-wrap items-center gap-3">
                   <Button type="submit" size="lg" disabled={!canSubmit}>
                     {submitting ? "Submitting..." : "Generate marketing assets"}
@@ -873,44 +1192,70 @@ export function MarketingAssetPlaygroundClient() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
-                      Prompt Examples
+                      Prompt Library
                     </p>
                     <h3 className="mt-2 font-serif text-2xl text-on-surface">
-                      Siap copy untuk image dan video
+                      Prompt dari docs, siap copy untuk image dan video
                     </h3>
                   </div>
                   <div className="text-sm text-secondary">
-                    Cocok buat test cepat sebelum refine brief.
+                    {loadingPromptLibrary
+                      ? "Memuat prompt library..."
+                      : "Bisa jadi starting point sebelum refine brief."}
                   </div>
                 </div>
-                <div className="mt-5 grid gap-3 lg:grid-cols-2">
-                  {PROMPT_EXAMPLES.map((example) => (
+                <div className="mt-4 rounded-[1.2rem] bg-surface px-4 py-3 text-xs text-secondary">
+                  Source: `docs/ai/generated/marketing-prompt-library.json`
+                </div>
+                <div className="mt-5 grid gap-4">
+                  {visiblePromptCollections.map((collection) => (
                     <div
-                      key={example.id}
-                      className="rounded-[1.2rem] bg-surface p-4"
+                      key={collection.id}
+                      className="rounded-[1.3rem] bg-surface p-4"
                     >
-                      <div className="flex items-center justify-between gap-2">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
-                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-secondary">
-                            {example.kind}
-                          </p>
-                          <h4 className="mt-2 font-serif text-2xl text-on-surface">
-                            {example.title}
+                          <h4 className="font-serif text-2xl text-on-surface">
+                            {collection.title}
                           </h4>
+                          <p className="mt-2 text-sm leading-6 text-on-surface/75">
+                            {collection.description}
+                          </p>
                         </div>
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => void handleCopyExamplePrompt(example)}
-                        >
-                          <Copy className="mr-2 h-3.5 w-3.5" />
-                          Copy
-                        </Button>
                       </div>
-                      <pre className="mt-4 overflow-x-auto rounded-2xl bg-surface-container-low px-4 py-3 text-xs leading-6 text-on-surface/80">
-                        {example.prompt}
-                      </pre>
+                      <div className="mt-4 grid gap-3 lg:grid-cols-2">
+                        {collection.items.map((example) => (
+                          <div
+                            key={example.id}
+                            className="rounded-[1.2rem] bg-surface-container-low px-4 py-4"
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <div>
+                                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-secondary">
+                                  {example.kind}
+                                </p>
+                                <h5 className="mt-2 font-serif text-2xl text-on-surface">
+                                  {example.title}
+                                </h5>
+                              </div>
+                              <Button
+                                type="button"
+                                size="sm"
+                                variant="ghost"
+                                onClick={() =>
+                                  void handleCopyExamplePrompt(example)
+                                }
+                              >
+                                <Copy className="mr-2 h-3.5 w-3.5" />
+                                Copy
+                              </Button>
+                            </div>
+                            <pre className="mt-4 overflow-x-auto rounded-2xl bg-surface px-4 py-3 text-xs leading-6 text-on-surface/80">
+                              {example.prompt}
+                            </pre>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>

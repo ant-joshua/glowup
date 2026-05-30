@@ -11,3 +11,7 @@ This folder contains product, business, and engineering documentation.
 - `ai/`: Agents, prompts, workflows, and evaluation
 - `tasks/`: Roadmap, backlog, and sprint artifacts
 
+## Quick Links
+
+- Engineering overview: [Codebase-Map.md](architecture/Codebase-Map.md)
+- Plan + spec workflow: [plan-spec-driven-development.md](ai/Workflows/plan-spec-driven-development.md)

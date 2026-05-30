@@ -39,6 +39,12 @@
           "prompt": "Landing page hero marketing clip for GlowUp Editorial Platform. Cinematic premium reveal of the interface and promise, slow elegant camera move, refined editorial motion, warm cream and terracotta palette, luxury product storytelling, soft glass highlights, confident but calm pacing, built for a high-conversion 16:9 hero section."
         },
         {
+          "id": "multi-shot-hero-story",
+          "kind": "video",
+          "title": "Multi-Shot Hero Story",
+          "prompt": "Landing page hero marketing clip for GlowUp Editorial Platform. Use multi-shot storytelling with sequential contextualized scenes. Scene 1 opens on a premium editorial hero composition and the GlowUp interface entering frame. Scene 2 moves through skincare guidance, outfit planning, and AI coaching as connected proof moments. Scene 3 resolves into a premium CTA ending with elegant breathing space for hero copy. Warm cream palette, terracotta accents, refined camera language, luxury product storytelling, 16:9."
+        },
+        {
           "id": "feature-montage-clip",
           "kind": "video",
           "title": "Feature Montage Clip",
@@ -49,6 +55,19 @@
           "kind": "video",
           "title": "CTA Conversion Beat",
           "prompt": "Landing page CTA clip for GlowUp. Focus on transformation, clarity, and premium self-improvement. Show a quick sequence of wardrobe planning, skincare ritual flow, and AI guidance ending on a compelling CTA moment. Elegant transitions, premium motion design language, landing-page-ready 16:9 composition."
+        }
+      ]
+    },
+    {
+      "id": "feature-demo-videos",
+      "title": "Feature Demo Videos",
+      "description": "Future marketing demos for key GlowUp product experiences.",
+      "items": [
+        {
+          "id": "ai-face-analysis-demo",
+          "kind": "video",
+          "title": "AI Face Analysis Demo",
+          "prompt": "Product demo marketing video for GlowUp AI Face Analysis. Show a refined selfie upload flow, elegant scanning overlays, confidence-building face analysis insights, skin and facial structure callouts, and a premium roadmap reveal. Editorial luxury aesthetic, believable mobile and desktop product framing, warm cream palette, terracotta accents, soft glass highlights, conversion-focused storytelling, 16:9."
         }
       ]
     }

@@ -9,7 +9,17 @@ function compactSentence(input: string) {
 }
 
 function joinList(values: string[]) {
-  return values.map((value) => compactSentence(value)).filter(Boolean).join(", ");
+  return values
+    .map((value) => compactSentence(value))
+    .filter(Boolean)
+    .join(", ");
+}
+
+function buildStoryboardSequence(storyboard: string[]) {
+  return storyboard
+    .map((scene, index) => `Scene ${index + 1}: ${compactSentence(scene)}.`)
+    .filter(Boolean)
+    .join(" ");
 }
 
 export function buildMarketingImageAssets(input: MarketingJobInput) {
@@ -42,10 +52,17 @@ export function buildMarketingVideoAssets(input: MarketingJobInput) {
   return input.videoBeats
     .map((beat, index): MarketingVideoAsset => {
       const cleanedBeat = compactSentence(beat);
+      const storyboard = input.videoStoryboard
+        .map((scene) => compactSentence(scene))
+        .filter(Boolean)
+        .slice(0, 6);
+      const storyMode = input.videoStoryMode;
 
       return {
         id: `video_${index + 1}`,
         title: cleanedBeat || `Video ${index + 1}`,
+        storyMode,
+        storyboard,
         status: "queued",
         prompt: [
           `Landing page marketing video clip for ${input.productName}.`,
@@ -58,6 +75,11 @@ export function buildMarketingVideoAssets(input: MarketingJobInput) {
           `Brand notes: ${input.brandNotes}.`,
           `Scene beat: ${cleanedBeat}.`,
           `Supporting visual system: ${joinList(input.imageShots)}.`,
+          storyMode === "multi-shot"
+            ? `Use multi-shot storytelling with clear sequential scenes for easy stitching. ${buildStoryboardSequence(
+                storyboard,
+              )}`
+            : "Use a single continuous cinematic shot with refined camera choreography and a coherent emotional arc.",
           "Create a premium, high-conversion landing page hero clip with elegant motion, refined camera movement, and editorial product storytelling.",
         ].join(" "),
       };

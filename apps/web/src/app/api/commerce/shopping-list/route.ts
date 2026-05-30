@@ -32,7 +32,7 @@ export function GET() {
         currency: product.currency,
       };
     })
-    .filter((item) => item !== null);
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const estimatedTotalIdr = items.reduce((sum, item) => sum + item.subtotal, 0);
 
@@ -50,4 +50,3 @@ export function GET() {
     updatedAt: "2026-05-12T00:00:00.000Z",
   });
 }
-

@@ -1,27 +1,31 @@
+import type { NextRequest } from "next/server";
 import { findProduct, products } from "../../_data";
 
 export function GET(
-  _request: Request,
-  { params }: { params: { productId: string } },
+  _request: NextRequest,
+  { params }: { params: Promise<{ productId: string }> },
 ) {
-  const product = findProduct(params.productId);
+  const productIdPromise = params;
 
-  if (!product) {
-    return Response.json(
-      { ok: false, error: "product_not_found", productId: params.productId },
-      { status: 404 },
-    );
-  }
+  return productIdPromise.then(({ productId }) => {
+    const product = findProduct(productId);
 
-  const related = products
-    .filter((p) => p.id !== product.id && p.category === product.category)
-    .slice(0, 3);
+    if (!product) {
+      return Response.json(
+        { ok: false, error: "product_not_found", productId },
+        { status: 404 },
+      );
+    }
 
-  return Response.json({
-    ok: true,
-    product,
-    related,
-    updatedAt: "2026-05-01T00:00:00.000Z",
+    const related = products
+      .filter((p) => p.id !== product.id && p.category === product.category)
+      .slice(0, 3);
+
+    return Response.json({
+      ok: true,
+      product,
+      related,
+      updatedAt: "2026-05-01T00:00:00.000Z",
+    });
   });
 }
-

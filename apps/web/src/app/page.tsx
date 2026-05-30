@@ -50,7 +50,7 @@ export default function LandingPage() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-secondary">
             <Link
-              href="#features"
+              href="/features"
               className="hover:text-primary transition-colors"
             >
               Features
@@ -93,55 +93,57 @@ export default function LandingPage() {
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[1080px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-primary/14 via-primary-container/10 to-transparent blur-[150px]" />
 
           <div className="relative z-10 px-4 md:px-6">
-            <div className="relative overflow-hidden rounded-[2.8rem] bg-surface-container-lowest/80 p-2 shadow-ambient md:p-3">
+            <div className="relative overflow-hidden rounded-[2.8rem] bg-surface-container-lowest/80 p-2 shadow-ambient md:p-3 lg:h-[72svh] lg:min-h-[520px] lg:max-h-[820px]">
               <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-tertiary/10" />
-              <div className="relative h-[72svh] min-h-[520px] max-h-[820px] overflow-hidden rounded-[2.2rem]">
-                <video
-                  className="absolute inset-0 h-full w-full object-cover"
-                  src={landingMarketingAssets.montageVideoUrl}
-                  poster={landingMarketingAssets.montageVideoPoster}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <div className="absolute inset-0 bg-linear-to-r from-on-surface/78 via-on-surface/32 to-on-surface/10" />
-                <div className="absolute inset-0 bg-linear-to-t from-on-surface/74 via-on-surface/16 to-transparent" />
+              <div className="relative overflow-hidden rounded-[2.2rem] lg:absolute lg:inset-0">
+                <div className="relative aspect-video overflow-hidden lg:h-full lg:aspect-auto">
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src={landingMarketingAssets.montageVideoUrl}
+                    poster={landingMarketingAssets.montageVideoPoster}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-linear-to-r from-on-surface/78 via-on-surface/32 to-on-surface/10" />
+                  <div className="absolute inset-0 bg-linear-to-t from-on-surface/74 via-on-surface/16 to-transparent" />
+                </div>
+              </div>
 
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-12 xl:p-16">
-                  <div className="max-w-3xl">
-                    <Badge
-                      variant="secondary"
-                      className="rounded-full border-0 bg-surface/14 px-4 py-2 text-sm text-surface shadow-none backdrop-blur hover:bg-surface/14"
+              <div className="relative z-10 border-t border-outline/20 bg-surface p-6 sm:p-8 lg:absolute lg:inset-x-0 lg:bottom-0 lg:border-0 lg:bg-transparent lg:backdrop-blur-0 lg:p-12 xl:p-16">
+                <div className="max-w-3xl">
+                  <Badge
+                    variant="secondary"
+                    className="rounded-full border-0 bg-surface-container-high px-4 py-2 text-sm text-on-surface shadow-none hover:bg-surface-container-high lg:bg-surface/14 lg:text-surface lg:backdrop-blur lg:hover:bg-surface/14"
+                  >
+                    <Sparkles className="mr-2 h-4 w-4 text-primary" />
+                    GlowUp editorial launch
+                  </Badge>
+                  <h1 className="mt-5 max-w-[8ch] font-serif text-5xl font-normal leading-[0.9] tracking-tight text-on-surface sm:text-6xl lg:text-[5.75rem] lg:text-surface">
+                    Become visually unforgettable.
+                  </h1>
+                  <p className="mt-5 max-w-[34rem] text-base leading-7 text-secondary sm:text-lg sm:leading-8 lg:text-xl lg:text-surface/82">
+                    GlowUp brings face analysis, outfit intelligence, skincare
+                    ritual design, and personal brand growth into one clean,
+                    premium experience.
+                  </p>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Button
+                      size="lg"
+                      className="h-15 rounded-full px-8 text-base sm:h-16 sm:px-10 sm:text-lg"
                     >
-                      <Sparkles className="mr-2 h-4 w-4 text-primary" />
-                      GlowUp editorial launch
-                    </Badge>
-                    <h1 className="max-w-[8ch] font-serif text-5xl font-normal leading-[0.9] tracking-tight text-surface sm:text-6xl lg:text-[5.75rem]">
-                      Become visually unforgettable.
-                    </h1>
-                    <p className="mt-5 max-w-[34rem] text-base leading-7 text-surface/82 sm:text-lg sm:leading-8 lg:text-xl">
-                      GlowUp brings face analysis, outfit intelligence, skincare
-                      ritual design, and personal brand growth into one clean,
-                      premium experience.
-                    </p>
-
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                      <Button
-                        size="lg"
-                        className="h-15 rounded-full px-8 text-base sm:h-16 sm:px-10 sm:text-lg"
-                      >
-                        Upload Your Selfie
-                        <ArrowRight className="ml-3 h-5 w-5" />
-                      </Button>
-                      <Button
-                        size="lg"
-                        variant="secondary"
-                        className="h-15 rounded-full border border-surface/18 bg-surface/10 px-8 text-base text-surface backdrop-blur hover:bg-surface/16 sm:h-16 sm:px-10 sm:text-lg"
-                      >
-                        Watch Demo Story
-                      </Button>
-                    </div>
+                      Upload Your Selfie
+                      <ArrowRight className="ml-3 h-5 w-5" />
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="secondary"
+                      className="h-15 rounded-full border border-outline/35 bg-surface-container-high px-8 text-base text-on-surface hover:bg-surface-container-highest sm:h-16 sm:px-10 sm:text-lg lg:border-surface/18 lg:bg-surface/10 lg:text-surface lg:backdrop-blur lg:hover:bg-surface/16"
+                    >
+                      Watch Demo Story
+                    </Button>
                   </div>
                 </div>
               </div>

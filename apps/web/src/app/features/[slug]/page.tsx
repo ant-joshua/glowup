@@ -14,6 +14,21 @@ function getFeature(slug: string) {
   return featuresCatalog.find((f) => f.slug === slug) ?? null;
 }
 
+function GuideList({ title, items }: { title: string; items: string[] }) {
+  if (!Array.isArray(items) || items.length === 0) return null;
+
+  return (
+    <div className="rounded-4xl border border-outline/30 bg-surface-container-low p-6">
+      <div className="text-sm font-semibold text-on-surface">{title}</div>
+      <ul className="mt-3 space-y-2 text-sm leading-6 text-secondary">
+        {items.map((item, index) => (
+          <li key={`${title}-${index}`}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default async function FeatureDetailPage({
   params,
 }: {
@@ -78,8 +93,44 @@ export default async function FeatureDetailPage({
             variables={feature.demo.variables}
           />
         </div>
+
+        <section className="mt-2">
+          <div className="flex flex-col gap-3">
+            <h2 className="font-serif text-3xl leading-tight tracking-tight text-on-surface sm:text-4xl">
+              Panduan singkat
+            </h2>
+            <p className="max-w-3xl text-base leading-7 text-secondary sm:text-lg">
+              {feature.guide.intro}
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-4xl border border-outline/30 bg-surface-container-lowest p-6 shadow-ambient-sm">
+              <div className="text-sm font-semibold text-on-surface">Ringkasan</div>
+              <div className="mt-3 space-y-3 text-sm leading-6 text-secondary">
+                <p>
+                  Demo ini menghasilkan beberapa clip pendek (multi-scene) supaya kamu bisa nyusun
+                  pacing yang rapi untuk video sekitar 30 detik.
+                </p>
+                <p>
+                  Untuk hasil terbaik, jaga consistency (lighting, persona, wardrobe) dan gunakan 5–6
+                  scene dengan durasi 5–6 detik per scene.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              <GuideList title="Yang kamu dapat" items={feature.guide.whatYouGet} />
+              <GuideList title="Cara kerja demo" items={feature.guide.howDemoWorks} />
+              <GuideList title="Tips prompt" items={feature.guide.promptTips} />
+              <GuideList title="Cara susun jadi 30 detik" items={feature.guide.assembleSteps} />
+              <div className="sm:col-span-2">
+                <GuideList title="Troubleshooting" items={feature.guide.troubleshooting} />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
 }
-

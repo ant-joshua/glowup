@@ -57,6 +57,157 @@
           "created_at": "2026-05-30T05:49:09Z"
         }
       }
+    },
+    "job_1780130512864_38fb0390": {
+      "id": "job_1780130512864_38fb0390",
+      "templateId": "glowup-investor-demo-landscape-v1",
+      "variables": {
+        "platform": "Investor Deck",
+        "tone": "Cinematic",
+        "steps": [
+          "Hook: GlowUp cinematic overview — the transformation platform",
+          "Selfie upload: user drops a selfie into GlowUp, calm UI framing",
+          "Face analysis: elegant scan overlays, score + key insights reveal",
+          "Skincare ritual: personalized 3-step routine and timeline appears",
+          "Outfit intelligence: wardrobe plan, outfit swap montage, try-on style moment",
+          "Creator community: routine feed + progress tracking reinforces consistency",
+          "Affiliate commerce: recommended products, one-tap add to list, checkout moment",
+          "CTA: Start your journey with GlowUp logo breathing space"
+        ],
+        "sceneDurationSec": "7"
+      },
+      "status": "succeeded",
+      "createdAt": "2026-05-30T08:41:52.864Z",
+      "startedAt": "2026-05-30T08:41:52.869Z",
+      "progress": {
+        "totalClips": 8,
+        "doneClips": 8
+      },
+      "output": {
+        "clips": [
+          {
+            "id": "job_1780130512864_38fb0390_clip_1",
+            "sceneIndex": 1,
+            "sceneTotal": 8,
+            "sceneTitle": "Hook: GlowUp cinematic overview — the transformation platform",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:41:52.870Z",
+            "finishedAt": "2026-05-30T08:43:08.765Z",
+            "output": {
+              "videoId": 405520718176071,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fb537d86a-ec8e-45ba-b93a-3c4a4e3d47e6_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fe14400cd-aee1-4e4c-b64b-c1078ea55b3c.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_2",
+            "sceneIndex": 2,
+            "sceneTotal": 8,
+            "sceneTitle": "Selfie upload: user drops a selfie into GlowUp, calm UI framing",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:43:08.770Z",
+            "finishedAt": "2026-05-30T08:44:09.778Z",
+            "output": {
+              "videoId": 405520868436378,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ff305cecd-5fbd-4091-a9f6-384af1bf7440_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F0c07e1b7-1e96-4558-b1c5-da52c34f5020.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_3",
+            "sceneIndex": 3,
+            "sceneTotal": 8,
+            "sceneTitle": "Face analysis: elegant scan overlays, score + key insights reveal",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:44:09.781Z",
+            "finishedAt": "2026-05-30T08:45:10.904Z",
+            "output": {
+              "videoId": 405520993129460,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F9958a27e-6c6f-4216-afd9-c52416690c2f_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F1a6e7013-2453-4365-afe6-ad6cfb10506a.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_4",
+            "sceneIndex": 4,
+            "sceneTotal": 8,
+            "sceneTitle": "Skincare ritual: personalized 3-step routine and timeline appears",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:45:10.906Z",
+            "finishedAt": "2026-05-30T08:46:12.151Z",
+            "output": {
+              "videoId": 405521118474705,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F74029bad-fd40-4847-b222-c024bbffa1aa_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F5f6bfa08-1faf-4b14-b4fa-d6fdddc4ec9e.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_5",
+            "sceneIndex": 5,
+            "sceneTotal": 8,
+            "sceneTitle": "Outfit intelligence: wardrobe plan, outfit swap montage, try-on style moment",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:46:12.154Z",
+            "finishedAt": "2026-05-30T08:47:19.555Z",
+            "output": {
+              "videoId": 405521243980894,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Fec81c6b3-746d-4822-8962-f2f524d23fc0_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Ff4cb3fdb-94bf-4657-9653-75dccd929b63.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_6",
+            "sceneIndex": 6,
+            "sceneTotal": 8,
+            "sceneTitle": "Creator community: routine feed + progress tracking reinforces consistency",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:47:19.559Z",
+            "finishedAt": "2026-05-30T08:48:24.154Z",
+            "output": {
+              "videoId": 405521382283764,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2Ffdc94e40-11e0-473d-a6aa-f47b5c0c02e5_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F66580785-bb1a-4b05-8efd-95675ce5fb67.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_7",
+            "sceneIndex": 7,
+            "sceneTotal": 8,
+            "sceneTitle": "Affiliate commerce: recommended products, one-tap add to list, checkout moment",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:48:24.156Z",
+            "finishedAt": "2026-05-30T08:49:43.771Z",
+            "output": {
+              "videoId": 405521515898832,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F48f49a43-3e37-42e7-a882-4fc781f82f83_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fa9f5107c-f9b1-44c1-b629-e3bcfc3b2291.jpg"
+            }
+          },
+          {
+            "id": "job_1780130512864_38fb0390_clip_8",
+            "sceneIndex": 8,
+            "sceneTotal": 8,
+            "sceneTitle": "CTA: Start your journey with GlowUp logo breathing space",
+            "durationSec": 7,
+            "status": "succeeded",
+            "startedAt": "2026-05-30T08:49:43.777Z",
+            "finishedAt": "2026-05-30T08:50:58.123Z",
+            "output": {
+              "videoId": 405521677907064,
+              "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F9318406c-551c-41cb-9913-062492cca79a_seed0.mp4",
+              "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2F417e02df-ac2f-480a-bfe7-2e18c50f40e5.jpg"
+            }
+          }
+        ]
+      },
+      "finishedAt": "2026-05-30T08:50:58.127Z"
     }
   }
 }

@@ -17,7 +17,7 @@ export default function DailyDashboardPage() {
       {/* Focus Card */}
       <section className="bg-surface-container-low rounded-[1.5rem] p-6 md:p-8 mb-10 relative overflow-hidden shadow-ambient-sm">
         {/* Decorative Glow Accent */}
-        <div className="absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br from-primary to-primary-container opacity-10 blur-3xl rounded-full" />
+        <div className="absolute -top-12 -right-12 w-40 h-40 bg-linear-to-br from-primary to-primary-container opacity-10 blur-3xl rounded-full" />
         <p className="font-sans text-[11px] font-semibold uppercase tracking-widest text-primary mb-3">
           Today&apos;s Focus
         </p>
@@ -36,7 +36,7 @@ export default function DailyDashboardPage() {
           {/* Completed Task */}
           <button className="w-full text-left bg-surface-container-low rounded-[1.5rem] p-4 flex items-center gap-4 transition-all duration-300">
             <div className="w-7 h-7 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary shadow-[0_4px_12px_rgba(0,106,96,0.2)] shrink-0">
-              <Check className="w-4 h-4 stroke-[3]" />
+              <Check className="w-4 h-4 stroke-3" />
             </div>
             <div className="flex-1">
               <span className="font-sans text-base text-secondary line-through opacity-70">
@@ -85,7 +85,7 @@ export default function DailyDashboardPage() {
               src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop"
             />
             {/* Elegant gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/30 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-on-surface/90 via-on-surface/30 to-transparent" />
           </div>
           
           <div className="absolute bottom-0 left-0 w-full p-6">

@@ -1,0 +1,62 @@
+{
+  "jobs": {
+    "job_1780120147477_e7ffa2ab": {
+      "id": "job_1780120147477_e7ffa2ab",
+      "templateId": "makeup-tutorial-v1",
+      "variables": {
+        "topic": "Topic: 抖音通勤伪素颜妆（干净、提气色、镜头友好）",
+        "platform": "TikTok",
+        "tone": "Educational",
+        "steps": [
+          "开场对比：素颜 vs 10秒后（镜头拉近，字幕“通勤伪素颜”）",
+          "护肤打底：保湿 + 防晒（薄涂、按压上脸）",
+          "底妆：局部遮瑕（黑眼圈/鼻翼）+ 轻薄粉底/气垫（少量多次）",
+          "定妆：T区轻扫散粉（强调“不厚重、不卡粉”）",
+          "眉毛：淡眉填空 + 眉头虚化（自然毛流）",
+          "眼妆：大地色单色晕染 + 内眼线（放大但不夸张）",
+          "睫毛：夹翘 + 纤长型睫毛膏（根根分明）",
+          "腮红：奶杏/豆沙轻扫（苹果肌偏上，显精神）",
+          "修容/高光：鼻梁/颧骨少量（“镜头更立体但不油”）",
+          "唇妆：豆沙/玫瑰色咬唇（最后镜头微笑转头）",
+          "结尾CTA：字幕“收藏这套通勤妆步骤/想要油皮版评论区说”"
+        ]
+      },
+      "status": "succeeded",
+      "createdAt": "2026-05-30T05:49:07.482Z",
+      "startedAt": "2026-05-30T05:49:07.486Z",
+      "finishedAt": "2026-05-30T05:50:29.681Z",
+      "output": {
+        "videoId": 405499484917430,
+        "videoUrl": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F85c6956c-fde4-4f85-b142-3e66b773b992_seed0.mp4",
+        "thumbnailUrl": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fa689dc0a-625f-4dee-9177-748ab2ff0ea8.jpg",
+        "rawSubmit": {
+          "video_id": 405499484917430,
+          "trace_id": "4fe3dbb4-5f5c-466c-875e-ff3e1bcedc0f",
+          "status": "submitted",
+          "cost_credits": 80,
+          "params": {
+            "prompt": "Makeup tutorial: Topic: 抖音通勤伪素颜妆（干净、提气色、镜头友好）. Steps: 开场对比：素颜 vs 10秒后（镜头拉近，字幕“通勤伪素颜”）, 护肤打底：保湿 + 防晒（薄涂、按压上脸）, 底妆：局部遮瑕（黑眼圈/鼻翼）+ 轻薄粉底/气垫（少量多次）, 定妆：T区轻扫散粉（强调“不厚重、不卡粉”）, 眉毛：淡眉填空 + 眉头虚化（自然毛流）, 眼妆：大地色单色晕染 + 内眼线（放大但不夸张）, 睫毛：夹翘 + 纤长型睫毛膏（根根分明）, 腮红：奶杏/豆沙轻扫（苹果肌偏上，显精神）, 修容/高光：鼻梁/颧骨少量（“镜头更立体但不油”）, 唇妆：豆沙/玫瑰色咬唇（最后镜头微笑转头）, 结尾CTA：字幕“收藏这套通勤妆步骤/想要油皮版评论区说”. Tone: Educational. Platform: TikTok. Aspect ratio 9:16. Clean studio lighting, close-up shots, clear text overlays, crisp cuts, professional look.",
+            "model": "v6",
+            "duration": 8,
+            "quality": "720p",
+            "create_count": 1,
+            "aspect_ratio": "9:16",
+            "audio": 1,
+            "multi_shot": 1
+          }
+        },
+        "rawResult": {
+          "id": 405499484917430,
+          "type": "video",
+          "status": "completed",
+          "video_url": "https://media.pixverse.ai/pixverse%2Fmp4%2Fmedia%2Fweb%2Fori%2F85c6956c-fde4-4f85-b142-3e66b773b992_seed0.mp4",
+          "cover_url": "https://media.pixverse.ai/pixverse%2Fvideo%2Fframe%2Fa689dc0a-625f-4dee-9177-748ab2ff0ea8.jpg",
+          "prompt": "Makeup tutorial: Topic: 抖音通勤伪素颜妆（干净、提气色、镜头友好）. Steps: 开场对比：素颜 vs 10秒后（镜头拉近，字幕“通勤伪素颜”）, 护肤打底：保湿 + 防晒（薄涂、按压上脸）, 底妆：局部遮瑕（黑眼圈/鼻翼）+ 轻薄粉底/气垫（少量多次）, 定妆：T区轻扫散粉（强调“不厚重、不卡粉”）, 眉毛：淡眉填空 + 眉头虚化（自然毛流）, 眼妆：大地色单色晕染 + 内眼线（放大但不夸张）, 睫毛：夹翘 + 纤长型睫毛膏（根根分明）, 腮红：奶杏/豆沙轻扫（苹果肌偏上，显精神）, 修容/高光：鼻梁/颧骨少量（“镜头更立体但不油”）, 唇妆：豆沙/玫瑰色咬唇（最后镜头微笑转头）, 结尾CTA：字幕“收藏这套通勤妆步骤/想要油皮版评论区说”. Tone: Educational. Platform: TikTok. Aspect ratio 9:16. Clean studio lighting, close-up shots, clear text overlays, crisp cuts, professional look.",
+          "model": "v6",
+          "duration": 8,
+          "created_at": "2026-05-30T05:49:09Z"
+        }
+      }
+    }
+  }
+}

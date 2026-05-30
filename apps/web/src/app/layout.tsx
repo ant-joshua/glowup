@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Serif, Manrope } from "next/font/google";
+import { Inter, Noto_Serif, Manrope, Geist } from "next/font/google";
 import "./index.css";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: "--font-sans-inter",
-  subsets: ["latin"],
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const notoSerif = Noto_Serif({
   variable: "--font-serif",
@@ -28,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSerif.variable} ${manrope.variable} h-full antialiased`}>
+    <html lang="en" className={cn("h-full", "antialiased", notoSerif.variable, manrope.variable, "font-sans", geist.variable)}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
       </body>

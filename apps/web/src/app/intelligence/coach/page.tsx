@@ -1,19 +1,50 @@
 import { PageShell } from "../../_components/PageShell";
 import { SectionCrumb } from "../../_components/SectionCrumb";
+import { getBaseUrl } from "../../_lib/getBaseUrl";
+import { CoachClient } from "./CoachClient";
 
-export default function IntelligenceCoachPage() {
+export const dynamic = "force-dynamic";
+
+type CoachMessage = {
+  id: string;
+  role: "user" | "coach";
+  content: string;
+  createdAt: string;
+};
+
+type CoachThreadResponse = {
+  ok: boolean;
+  threadId: string;
+  messages: CoachMessage[];
+};
+
+async function getThread() {
+  const baseUrl = await getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/intelligence/coach`, {
+    cache: "no-store",
+  });
+  return (await res.json()) as CoachThreadResponse;
+}
+
+export default async function IntelligenceCoachPage() {
+  const data = await getThread();
+
   return (
     <PageShell
       title="Intelligence · Coach"
-      description="Shell halaman untuk AI coach (akan dihubungkan ke mock API pada task berikutnya)."
+      description="Chat singkat dengan coach (mock)."
     >
       <SectionCrumb
         href="/intelligence"
         label="← Kembali ke PRD-005 Intelligence"
       />
-      <div className="rounded-xl border border-zinc-200 bg-white p-4 text-sm text-zinc-600 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400">
-        UI coach akan ditambahkan setelah mock API PRD-005 tersedia.
+      <div className="text-sm text-zinc-600 dark:text-zinc-400">
+        Thread:{" "}
+        <span className="font-mono text-zinc-950 dark:text-zinc-50">
+          {data.threadId}
+        </span>
       </div>
+      <CoachClient initialMessages={data.messages} />
     </PageShell>
   );
 }

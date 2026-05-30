@@ -86,6 +86,28 @@ function buildCreateVideoArgs(prompt: string, defaults: TemplateDefaults | undef
   return args;
 }
 
+function buildCreateImageArgs(
+  prompt: string,
+  defaults: TemplateDefaults | undefined,
+) {
+  const d = normalizeDefaults(defaults);
+
+  return [
+    "pixverse",
+    "create",
+    "image",
+    "--prompt",
+    prompt,
+    "--model",
+    d.model,
+    "--quality",
+    d.quality,
+    "--aspect-ratio",
+    d.aspectRatio,
+    "--json",
+  ];
+}
+
 function buildTaskWaitArgs(videoId: number, timeoutSec: number) {
   return ["pixverse", "task", "wait", String(videoId), "--timeout", String(timeoutSec), "--json"];
 }
@@ -169,5 +191,54 @@ export async function createVideoFromPrompt({
     coverUrl,
     rawSubmit: submitJson,
     rawResult: waitedJson,
+  };
+}
+
+export async function createImageFromPrompt({
+  prompt,
+  defaults,
+}: {
+  prompt: string;
+  defaults?: TemplateDefaults;
+}) {
+  const bin = process.env.PIXVERSE_CLI_BIN?.trim() || "npx";
+  const env = { ...process.env };
+  const created = await runCommand(bin, buildCreateImageArgs(prompt, defaults), env);
+  const createdJson = safeParseJson(created.stdout);
+
+  if (created.exitCode !== 0 || !createdJson || typeof createdJson !== "object") {
+    return {
+      ok: false as const,
+      exitCode: created.exitCode,
+      stderr: created.stderr,
+      rawSubmit: createdJson,
+      message: "PixVerse CLI create image failed.",
+    };
+  }
+
+  const resultRec = createdJson as Record<string, unknown>;
+  const imageIdRaw = resultRec.image_id;
+  const imageId = typeof imageIdRaw === "number" ? imageIdRaw : Number(imageIdRaw);
+  const imageUrl = typeof resultRec.image_url === "string" ? resultRec.image_url : null;
+  const width = typeof resultRec.width === "number" ? resultRec.width : undefined;
+  const height = typeof resultRec.height === "number" ? resultRec.height : undefined;
+
+  if (!Number.isFinite(imageId) || !imageUrl) {
+    return {
+      ok: false as const,
+      exitCode: created.exitCode,
+      stderr: created.stderr,
+      rawSubmit: createdJson,
+      message: "PixVerse CLI completed without image_id or image_url.",
+    };
+  }
+
+  return {
+    ok: true as const,
+    imageId,
+    imageUrl,
+    width,
+    height,
+    rawSubmit: createdJson,
   };
 }

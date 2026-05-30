@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-30T00:00:00.000Z",
+  "collections": [
+    {
+      "id": "landing-page-images",
+      "title": "Landing Page Images",
+      "description": "Still-image prompts for hero, feature, and conversion support visuals.",
+      "items": [
+        {
+          "id": "editorial-hero-still",
+          "kind": "image",
+          "title": "Editorial Hero Still",
+          "prompt": "Landing page hero still for GlowUp Editorial Platform. Premium editorial composition with warm cream surfaces, terracotta accent glow, refined serif typography space, elegant laptop mockup showing the interface, luxurious negative space, product-marketing realism, high-conversion visual hierarchy, 16:9."
+        },
+        {
+          "id": "feature-proof-visual",
+          "kind": "image",
+          "title": "Feature Proof Visual",
+          "prompt": "Landing page feature-section still for GlowUp. Showcase wardrobe planning, skincare ritual guidance, and AI coaching in one premium product composition. Crisp UI close-up, tonal layering, soft daylight, modern luxury art direction, believable SaaS product marketing visual, 16:9."
+        },
+        {
+          "id": "cta-support-still",
+          "kind": "image",
+          "title": "CTA Support Still",
+          "prompt": "Landing page CTA support still for GlowUp. Show calm confidence, premium self-improvement mood, elegant product interface placement, editorial lighting, warm cream background, subtle terracotta highlight, sophisticated conversion-focused composition, 16:9."
+        }
+      ]
+    },
+    {
+      "id": "landing-page-videos",
+      "title": "Landing Page Videos",
+      "description": "Short marketing clips built for hero sections and conversion moments.",
+      "items": [
+        {
+          "id": "hero-reveal-clip",
+          "kind": "video",
+          "title": "Hero Reveal Clip",
+          "prompt": "Landing page hero marketing clip for GlowUp Editorial Platform. Cinematic premium reveal of the interface and promise, slow elegant camera move, refined editorial motion, warm cream and terracotta palette, luxury product storytelling, soft glass highlights, confident but calm pacing, built for a high-conversion 16:9 hero section."
+        },
+        {
+          "id": "feature-montage-clip",
+          "kind": "video",
+          "title": "Feature Montage Clip",
+          "prompt": "Landing page feature montage clip for GlowUp. Move through wardrobe planning, skincare ritual guidance, and AI coaching outputs with premium pacing, believable UI transitions, modern editorial motion, soft light, confident aspirational tone, designed for a 16:9 landing page section."
+        },
+        {
+          "id": "cta-conversion-beat",
+          "kind": "video",
+          "title": "CTA Conversion Beat",
+          "prompt": "Landing page CTA clip for GlowUp. Focus on transformation, clarity, and premium self-improvement. Show a quick sequence of wardrobe planning, skincare ritual flow, and AI guidance ending on a compelling CTA moment. Elegant transitions, premium motion design language, landing-page-ready 16:9 composition."
+        }
+      ]
+    }
+  ]
+}

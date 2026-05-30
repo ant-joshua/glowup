@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import Image from "next/image";
 
 export default function DailyDashboardPage() {
   return (
@@ -76,10 +77,11 @@ export default function DailyDashboardPage() {
         <h4 className="font-serif text-2xl text-on-surface mb-5 pl-2">The Atelier Edits</h4>
         <div className="relative rounded-[1.5rem] overflow-hidden shadow-ambient bg-surface-container group cursor-pointer">
           <div className="h-64 w-full relative">
-            {/* Using img tag with an appropriate placeholder image since the user provided one in HTML but it requires next/image config to use remote host, so we use a standard image tag */}
-            <img 
-              alt="Skincare bottles flatlay" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            <Image
+              alt="Skincare bottles flatlay"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 768px"
               src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop"
             />
             {/* Elegant gradient overlay */}

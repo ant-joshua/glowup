@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ScanFace, LayoutDashboard, SprayCan, Shirt, ShoppingBag, Users, Settings, LogOut, User } from "lucide-react";
+import { ScanFace, LayoutDashboard, SprayCan, Shirt, ShoppingBag, Users, Settings, LogOut, User, History } from "lucide-react";
 
 export function Sidebar() {
   return (
@@ -24,6 +24,10 @@ export function Sidebar() {
         <Link href="/daily-dashboard" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container text-secondary hover:text-on-surface font-medium transition-colors">
           <LayoutDashboard className="w-5 h-5" />
           Daily Dashboard
+        </Link>
+        <Link href="/analysis-history" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container text-secondary hover:text-on-surface font-medium transition-colors">
+          <History className="w-5 h-5" />
+          Analysis History
         </Link>
         <Link href="/skincare-shelf" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container text-secondary hover:text-on-surface font-medium transition-colors">
           <SprayCan className="w-5 h-5" />

@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { PageShell } from "../../_components/PageShell";
 import { SectionCrumb } from "../../_components/SectionCrumb";
 import { getRequestOrigin } from "../../_lib/requestOrigin";
+import { Button } from "@/components/ui/button";
+import { AnalyticsClient } from "./AnalyticsClient";
 
 type Period = "daily" | "weekly" | "monthly";
 
@@ -11,6 +12,10 @@ type AffiliateAnalyticsResponse = {
   period: Period;
   summary: {
     clicks: number;
+    adds: number;
+    checkouts: number;
+    purchases: number;
+    orders: number;
     ctr: number;
     conversions: number;
     revenueIdr: number;
@@ -19,11 +24,17 @@ type AffiliateAnalyticsResponse = {
   topProducts: Array<{
     productId: string;
     clicks: number;
+    adds: number;
+    checkouts: number;
+    purchases: number;
     conversions: number;
     revenueIdr: number;
     commissionIdr: number;
     product: { id: string; name: string; brand: string; category: string } | null;
   }>;
+  sources: Array<{ source: string; clicks: number; adds: number; checkouts: number; purchases: number }>;
+  campaigns: Array<{ campaign: string; clicks: number; adds: number; checkouts: number; purchases: number }>;
+  series: Array<{ day: string; clicks: number; adds: number; checkouts: number; purchases: number }>;
   updatedAt: string;
 };
 
@@ -94,21 +105,22 @@ export default async function CommerceAffiliateAnalyticsPage({
             ))}
           </select>
         </div>
-        <button
-          type="submit"
-          className="rounded-md border border-zinc-200 bg-white px-4 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"
-        >
+        <Button type="submit" variant="outline">
           Terapkan
-        </button>
+        </Button>
         <div className="ml-auto text-sm text-zinc-600 dark:text-zinc-400">
           Creator: <span className="font-mono">{data.creatorId}</span>
         </div>
       </form>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
         <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
           <div className="text-sm text-zinc-600 dark:text-zinc-400">Clicks</div>
           <div className="mt-1 text-lg font-semibold">{data.summary.clicks}</div>
+        </div>
+        <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="text-sm text-zinc-600 dark:text-zinc-400">Adds</div>
+          <div className="mt-1 text-lg font-semibold">{data.summary.adds}</div>
         </div>
         <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
           <div className="text-sm text-zinc-600 dark:text-zinc-400">CTR</div>
@@ -118,10 +130,10 @@ export default async function CommerceAffiliateAnalyticsPage({
         </div>
         <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
           <div className="text-sm text-zinc-600 dark:text-zinc-400">
-            Conversions
+            Purchases
           </div>
           <div className="mt-1 text-lg font-semibold">
-            {data.summary.conversions}
+            {data.summary.purchases}
           </div>
         </div>
         <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
@@ -147,48 +159,73 @@ export default async function CommerceAffiliateAnalyticsPage({
             Updated: <span className="font-mono">{data.updatedAt}</span>
           </div>
         </div>
-        <div className="mt-3 overflow-x-auto">
-          <table className="w-full border-collapse text-left text-sm">
-            <thead className="text-zinc-600 dark:text-zinc-400">
-              <tr>
-                <th className="py-2 pr-4 font-medium">Produk</th>
-                <th className="py-2 pr-4 font-medium">Clicks</th>
-                <th className="py-2 pr-4 font-medium">Conv</th>
-                <th className="py-2 pr-4 font-medium">Revenue</th>
-                <th className="py-2 font-medium">Commission</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.topProducts.map((row) => (
-                <tr
-                  key={row.productId}
-                  className="border-t border-zinc-200 dark:border-zinc-800"
-                >
-                  <td className="py-3 pr-4">
-                    {row.product ? (
-                      <Link
-                        href={`/commerce/products/${row.product.id}`}
-                        className="font-medium hover:underline"
-                      >
-                        {row.product.name}
-                      </Link>
-                    ) : (
-                      <span className="font-mono">{row.productId}</span>
-                    )}
-                    {row.product ? (
-                      <div className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                        {row.product.brand} · {row.product.category}
-                      </div>
-                    ) : null}
-                  </td>
-                  <td className="py-3 pr-4">{row.clicks}</td>
-                  <td className="py-3 pr-4">{row.conversions}</td>
-                  <td className="py-3 pr-4 font-medium">{formatIdr(row.revenueIdr)}</td>
-                  <td className="py-3 font-medium">{formatIdr(row.commissionIdr)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-3">
+          <AnalyticsClient topProducts={data.topProducts} />
+        </div>
+      </div>
+
+      <div className="grid gap-3 lg:grid-cols-2">
+        <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="text-sm font-medium">Funnel by source</div>
+          <div className="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+            {data.sources.length === 0 ? (
+              <div className="text-secondary">No events yet.</div>
+            ) : (
+              data.sources.map((row) => (
+                <div key={row.source} className="flex items-center justify-between gap-3">
+                  <span className="font-mono">{row.source}</span>
+                  <span className="text-secondary">
+                    c <span className="font-medium text-on-surface">{row.clicks}</span> · a{" "}
+                    <span className="font-medium text-on-surface">{row.adds}</span> · co{" "}
+                    <span className="font-medium text-on-surface">{row.checkouts}</span> · p{" "}
+                    <span className="font-medium text-on-surface">{row.purchases}</span>
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="text-sm font-medium">Series</div>
+          <div className="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+            {data.series.length === 0 ? (
+              <div className="text-secondary">No events yet.</div>
+            ) : (
+              data.series.map((row) => (
+                <div key={row.day} className="flex items-center justify-between gap-3">
+                  <span className="font-mono">{row.day}</span>
+                  <span className="text-secondary">
+                    c <span className="font-medium text-on-surface">{row.clicks}</span> · a{" "}
+                    <span className="font-medium text-on-surface">{row.adds}</span> · co{" "}
+                    <span className="font-medium text-on-surface">{row.checkouts}</span> · p{" "}
+                    <span className="font-medium text-on-surface">{row.purchases}</span>
+                  </span>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+        <div className="text-sm font-medium">Funnel by campaign</div>
+        <div className="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          {data.campaigns.length === 0 ? (
+            <div className="text-secondary">No campaigns yet.</div>
+          ) : (
+            data.campaigns.map((row) => (
+              <div key={row.campaign} className="flex items-center justify-between gap-3">
+                <span className="font-mono">{row.campaign}</span>
+                <span className="text-secondary">
+                  c <span className="font-medium text-on-surface">{row.clicks}</span> · a{" "}
+                  <span className="font-medium text-on-surface">{row.adds}</span> · co{" "}
+                  <span className="font-medium text-on-surface">{row.checkouts}</span> · p{" "}
+                  <span className="font-medium text-on-surface">{row.purchases}</span>
+                </span>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </PageShell>

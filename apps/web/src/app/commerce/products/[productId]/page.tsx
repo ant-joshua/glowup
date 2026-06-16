@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageShell } from "../../../_components/PageShell";
 import { SectionCrumb } from "../../../_components/SectionCrumb";
 import { getRequestOrigin } from "../../../_lib/requestOrigin";
+import { ProductClient } from "./ProductClient";
 
 type ProductVariant = {
   id: string;
@@ -104,13 +105,14 @@ export default async function CommerceProductDetailPage({
                   {formatCurrency(json.product.price, json.product.currency)}
                 </div>
                 <a
-                  href={json.product.affiliateUrl}
+                  href={`/api/commerce/redirect?productId=${encodeURIComponent(json.product.id)}&source=product`}
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900"
                 >
                   Buka tautan affiliate
                 </a>
+                <ProductClient productId={json.product.id} />
               </div>
             </div>
           </div>

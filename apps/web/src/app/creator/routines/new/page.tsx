@@ -26,7 +26,7 @@ export default async function CreatorRoutineEditorPage() {
   return (
     <PageShell
       title="Creator · Routine Editor"
-      description="Form minimal + preview (mock), dan konsumsi data referensi dari mock API."
+      description="Create a routine and persist it to the mock store."
     >
       <SectionCrumb href="/creator" label="← Kembali ke PRD-002 Creator" />
       <RoutineEditorClient

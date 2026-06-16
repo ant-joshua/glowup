@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif, Manrope, Geist } from "next/font/google";
 import "./index.css";
 import { cn } from "@/lib/utils";
+import { Providers } from "./providers";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("h-full", "antialiased", notoSerif.variable, manrope.variable, "font-sans", geist.variable)}>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

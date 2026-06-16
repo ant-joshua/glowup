@@ -1,0 +1,7 @@
+import { readCoreStore } from "../../../../_lib/coreStore";
+
+export async function GET() {
+  const store = await readCoreStore();
+  return Response.json({ ok: true, items: store.analyses.slice().reverse() });
+}
+

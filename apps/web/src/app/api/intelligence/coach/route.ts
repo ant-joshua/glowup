@@ -1,3 +1,10 @@
+import {
+  appendCoachMessages,
+  normalizeCoachContent,
+  readIntelligenceStore,
+  writeIntelligenceStore,
+} from "../../../_lib/intelligenceStore";
+
 function generateCoachReply(input: string) {
   const normalized = input.trim().toLowerCase();
 
@@ -21,42 +28,46 @@ function generateCoachReply(input: string) {
   return "Sebutkan goal utama kamu minggu ini (mis. kulit, fitness, style), lalu aku bantu langkah paling kecil yang bisa kamu lakukan hari ini.";
 }
 
-export function GET() {
+export async function GET() {
+  const store = await readIntelligenceStore();
   return Response.json({
     ok: true,
-    threadId: "coach-thread-001",
-    messages: [
-      {
-        id: "msg-001",
-        role: "user",
-        content: "Aku missed routine kemarin.",
-        createdAt: "2026-05-30T00:00:00.000Z",
-      },
-      {
-        id: "msg-002",
-        role: "coach",
-        content: "Lanjutkan besok. Jangan restart dari awal. Yang penting konsisten kembali.",
-        createdAt: "2026-05-30T00:00:01.000Z",
-      },
-    ],
+    thread: store.coach,
+    updatedAt: store.updatedAt,
+    generatedAt: "2026-05-30T00:00:00.000Z",
   });
 }
 
 export async function POST(request: Request) {
-  const body = (await request.json().catch(() => null)) as unknown;
-  const message =
-    body != null &&
-    typeof body === "object" &&
-    "message" in body &&
-    typeof (body as { message?: unknown }).message === "string"
-      ? (body as { message: string }).message
-      : "";
+  let body: unknown = null;
+  try {
+    body = await request.json();
+  } catch {
+    body = null;
+  }
+
+  if (!body || typeof body !== "object") {
+    return Response.json({ ok: false, error: "invalid_request" }, { status: 400 });
+  }
+
+  const message = normalizeCoachContent((body as Record<string, unknown>).message);
+  if (!message) {
+    return Response.json(
+      { ok: false, error: "invalid_message", message: "Pesan tidak valid." },
+      { status: 400 },
+    );
+  }
+
+  const store = await readIntelligenceStore();
+  const reply = generateCoachReply(message);
+  const next = appendCoachMessages(store, { userContent: message, coachContent: reply });
+  const saved = await writeIntelligenceStore(next);
 
   return Response.json({
     ok: true,
-    threadId: "coach-thread-001",
+    thread: saved.coach,
     input: { message },
-    output: { message: generateCoachReply(message) },
-    generatedAt: "2026-05-30T00:00:00.000Z",
+    output: { message: reply },
+    updatedAt: saved.updatedAt,
   });
 }

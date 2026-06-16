@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { ArrowLeft, X, CheckCircle2, Sparkles, Shirt, Palette, UploadCloud, ImageIcon, Loader2, Info } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -119,16 +119,40 @@ export default function StartAnalysisPage() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [isDragging, setIsDragging] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [result, setResult] = useState<typeof mockResult | null>(null);
 
-  // Auto-progress from Step 3 to Step 4 after a delay
-  useEffect(() => {
-    if (step === 3) {
-      const timer = setTimeout(() => {
-        setStep(4);
-      }, 3000);
-      return () => clearTimeout(timer);
+  const resultData = result ?? mockResult;
+
+  const startAnalyze = useCallback(async () => {
+    if (!selectedOption) return;
+    if (files.length === 0) return;
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setStep(3);
+
+    try {
+      const res = await fetch("/api/core/analysis", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ kind: selectedOption, filesCount: files.length }),
+      });
+      const data = (await res.json()) as { ok?: boolean; result?: typeof mockResult; error?: string };
+      if (!res.ok || data.ok !== true) {
+        setSubmitError(data.error ?? "analysis_failed");
+        setStep(2);
+        return;
+      }
+      if (data.result) setResult(data.result);
+      setStep(4);
+    } catch {
+      setSubmitError("analysis_failed");
+      setStep(2);
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [step]);
+  }, [files.length, selectedOption]);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -268,6 +292,12 @@ export default function StartAnalysisPage() {
                   For best results, follow these guidelines when taking your photos.
                 </p>
               </div>
+
+              {submitError ? (
+                <div className="rounded-2xl border border-destructive/20 bg-destructive/10 p-4 text-sm text-destructive">
+                  Failed to analyze ({submitError}). Please try again.
+                </div>
+              ) : null}
 
               <div className="grid grid-cols-3 gap-3">
                 <div className="space-y-2">
@@ -415,12 +445,12 @@ export default function StartAnalysisPage() {
                 <CardContent className="space-y-4">
                   <div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Skin Type</span>
-                    <p className="text-lg font-medium text-on-surface capitalize mt-1">{mockResult.skinAnalysis.skinType}</p>
+                    <p className="text-lg font-medium text-on-surface capitalize mt-1">{resultData.skinAnalysis.skinType}</p>
                   </div>
                   <div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold block mb-2">Identified Issues</span>
                     <div className="flex flex-wrap gap-2">
-                      {mockResult.skinAnalysis.identifiedIssues.map((issue, idx) => (
+                      {resultData.skinAnalysis.identifiedIssues.map((issue, idx) => (
                         <Badge key={idx} variant="secondary" className="bg-surface-container hover:bg-surface-container-high text-on-surface border-none font-normal">
                           {issue}
                         </Badge>
@@ -434,7 +464,7 @@ export default function StartAnalysisPage() {
               <div className="space-y-4">
                 <h3 className="text-xl font-serif font-bold text-on-surface">Recommended Routine</h3>
                 <div className="space-y-3">
-                  {mockResult.skincareRecommendations.map((rec, idx) => (
+                  {resultData.skincareRecommendations.map((rec, idx) => (
                     <div key={idx} className="p-4 bg-surface-container-low rounded-2xl border border-border">
                       <div className="flex items-center gap-2 mb-2">
                         <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
@@ -458,7 +488,7 @@ export default function StartAnalysisPage() {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-on-surface">
-                      {mockResult.usageSchedule.amRoutine.map((step, idx) => (
+                      {resultData.usageSchedule.amRoutine.map((step, idx) => (
                         <li key={idx} className="flex gap-2">
                           <span className="text-tertiary font-bold">{idx + 1}.</span>
                           <span>{step}</span>
@@ -476,7 +506,7 @@ export default function StartAnalysisPage() {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-on-surface">
-                      {mockResult.usageSchedule.pmRoutine.map((step, idx) => (
+                      {resultData.usageSchedule.pmRoutine.map((step, idx) => (
                         <li key={idx} className="flex gap-2">
                           <span className="text-primary font-bold">{idx + 1}.</span>
                           <span>{step}</span>
@@ -499,7 +529,7 @@ export default function StartAnalysisPage() {
                   <div>
                     <span className="text-xs text-[#a13f20]/70 uppercase tracking-wider font-semibold block mb-2">Ingredients</span>
                     <ul className="list-disc pl-4 space-y-1 text-sm text-[#5c2412]">
-                      {mockResult.avoidances.ingredients.map((item, idx) => (
+                      {resultData.avoidances.ingredients.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}
                     </ul>
@@ -507,7 +537,7 @@ export default function StartAnalysisPage() {
                   <div>
                     <span className="text-xs text-[#a13f20]/70 uppercase tracking-wider font-semibold block mb-2">Habits</span>
                     <ul className="list-disc pl-4 space-y-1 text-sm text-[#5c2412]">
-                      {mockResult.avoidances.habits.map((item, idx) => (
+                      {resultData.avoidances.habits.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}
                     </ul>
@@ -528,17 +558,17 @@ export default function StartAnalysisPage() {
                   <div className="flex gap-4">
                     <div>
                       <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Undertone</span>
-                      <p className="font-medium text-on-surface mt-1">{mockResult.personalColor.undertone}</p>
+                      <p className="font-medium text-on-surface mt-1">{resultData.personalColor.undertone}</p>
                     </div>
                     <div>
                       <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Season</span>
-                      <p className="font-medium text-on-surface mt-1">{mockResult.personalColor.seasonalColor}</p>
+                      <p className="font-medium text-on-surface mt-1">{resultData.personalColor.seasonalColor}</p>
                     </div>
                   </div>
                   <div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold block mb-2">Recommended Colors</span>
                     <div className="flex flex-wrap gap-2">
-                      {mockResult.personalColor.recommendedClothingColors.map((color, idx) => (
+                      {resultData.personalColor.recommendedClothingColors.map((color, idx) => (
                         <Badge key={idx} className="bg-tertiary/10 text-tertiary hover:bg-tertiary/20 border-none font-normal">
                           {color}
                         </Badge>
@@ -548,7 +578,7 @@ export default function StartAnalysisPage() {
                   <div>
                     <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold block mb-2">Colors to Avoid</span>
                     <div className="flex flex-wrap gap-2">
-                      {mockResult.personalColor.colorsToAvoid.map((color, idx) => (
+                      {resultData.personalColor.colorsToAvoid.map((color, idx) => (
                         <Badge key={idx} variant="outline" className="text-muted-foreground font-normal">
                           {color}
                         </Badge>
@@ -579,9 +609,9 @@ export default function StartAnalysisPage() {
             
             {step === 2 && (
               <Button 
-                onClick={() => setStep(3)}
+                onClick={startAnalyze}
                 className="w-full py-7 text-lg rounded-xl shadow-lg bg-primary hover:bg-primary/90 text-white font-medium" 
-                disabled={files.length === 0}
+                disabled={files.length === 0 || isSubmitting}
               >
                 Start Analyze
                 <Sparkles className="w-5 h-5 ml-2" />

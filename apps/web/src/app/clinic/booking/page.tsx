@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageShell } from "../../_components/PageShell";
 import { SectionCrumb } from "../../_components/SectionCrumb";
 import { getBaseUrl } from "../../_lib/getBaseUrl";
+import { BookingClient } from "./BookingClient";
 
 export const dynamic = "force-dynamic";
 
@@ -118,6 +119,7 @@ export default async function ClinicBookingPage({
     date: requestedDate,
     mode: requestedMode,
   });
+  const activeService = services.find((svc) => svc.id === activeServiceId) ?? null;
 
   return (
     <PageShell
@@ -277,26 +279,16 @@ export default async function ClinicBookingPage({
           </span>
         </div>
 
-        <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {slotsData.slots.map((slot) => (
-            <div
-              key={slot.id}
-              className={[
-                "rounded-lg border p-3 text-sm",
-                slot.available
-                  ? "border-zinc-200 bg-white text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-200"
-                  : "border-zinc-200 bg-zinc-50 text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400",
-              ].join(" ")}
-            >
-              <div className="font-mono text-xs">{slot.id}</div>
-              <div className="mt-1 font-mono">
-                {slot.startAt} → {slot.endAt}
-              </div>
-              <div className="mt-1 text-xs">
-                {slot.available ? "Available" : "Unavailable"}
-              </div>
-            </div>
-          ))}
+        <div className="mt-4">
+          <BookingClient
+            expertId={slotsData.query.expertId}
+            serviceId={slotsData.query.serviceId}
+            mode={slotsData.query.mode}
+            slots={slotsData.slots}
+            serviceName={activeService?.name ?? null}
+            durationMinutes={activeService?.durationMinutes ?? null}
+            priceIdr={activeService?.priceIdr ?? null}
+          />
         </div>
 
         <div className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">

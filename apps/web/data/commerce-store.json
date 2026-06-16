@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "userId": "usr_0001",
+  "creatorId": "cr_0001",
+  "shoppingList": {
+    "id": "list-001",
+    "title": "Office Refresh",
+    "status": "draft",
+    "currency": "IDR",
+    "items": [
+      {
+        "id": "item-001",
+        "productId": "sku-001",
+        "quantity": 1,
+        "addedAt": "2026-05-10T00:00:00.000Z"
+      },
+      {
+        "id": "item-002",
+        "productId": "sku-003",
+        "quantity": 2,
+        "addedAt": "2026-05-11T00:00:00.000Z"
+      },
+      {
+        "id": "item-003",
+        "productId": "sku-004",
+        "quantity": 1,
+        "addedAt": "2026-05-12T00:00:00.000Z"
+      }
+    ]
+  },
+  "affiliateEvents": []
+}
+

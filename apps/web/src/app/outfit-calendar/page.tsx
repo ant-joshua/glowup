@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Sun, ArrowRight, Shirt, ShoppingBag } from "lucide-react";
+import { Sun, ArrowRight, Shirt, ShoppingBag } from "lucide-react";
 
 export default function OutfitCalendarPage() {
   return (

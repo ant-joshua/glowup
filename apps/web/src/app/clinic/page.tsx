@@ -24,9 +24,18 @@ export default function ClinicLandingPage() {
             title: "Booking",
             description: "Flow pemesanan slot (mock).",
           },
+          {
+            href: "/clinic/bookings",
+            title: "My Bookings",
+            description: "Daftar booking yang akan datang.",
+          },
+          {
+            href: "/clinic/bookings/history",
+            title: "History",
+            description: "Riwayat booking dan cancel.",
+          },
         ]}
       />
     </PageShell>
   );
 }
-

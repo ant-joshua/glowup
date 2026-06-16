@@ -80,8 +80,23 @@ export function FeaturePixVerseDemoClient({
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ templateId, variables }),
       });
-      const data = (await res.json()) as CreateResponse;
+      let data: CreateResponse | null = null;
+      try {
+        data = (await res.json()) as CreateResponse;
+      } catch {
+        data = null;
+      }
+
+      if (!data) {
+        setError("Server error. Pastikan pixverse-worker berjalan di localhost:4107.");
+        return;
+      }
+
       if (!res.ok || data.ok !== true || !data.job) {
+        if (data.error === "worker_unreachable") {
+          setError("Worker tidak bisa diakses. Jalankan pixverse-worker di localhost:4107.");
+          return;
+        }
         setError(data.error ?? "Gagal membuat job.");
         return;
       }
@@ -184,4 +199,3 @@ export function FeaturePixVerseDemoClient({
     </div>
   );
 }
-

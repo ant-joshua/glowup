@@ -1,0 +1,140 @@
+{
+  "updatedAt": "2026-05-01T00:00:00.000Z",
+  "user": {
+    "id": "usr_0001",
+    "name": "Alya Putri",
+    "age": 28,
+    "gender": "female",
+    "heightCm": 162,
+    "weightKg": 56,
+    "occupation": "Product Designer",
+    "budgetMonthlyIdr": 1500000
+  },
+  "goals": [
+    { "id": "goal_skin", "label": "Better Skin" },
+    { "id": "goal_fashion", "label": "Better Fashion" },
+    { "id": "goal_branding", "label": "Personal Branding" }
+  ],
+  "roadmap": {
+    "id": "rmp_0001",
+    "userId": "usr_0001",
+    "horizonDays": 90,
+    "generatedAt": "2026-04-20T08:45:00.000Z",
+    "weeks": [
+      {
+        "week": 1,
+        "focus": "Baseline & kebiasaan inti",
+        "actions": [
+          { "id": "act_001", "title": "Skincare AM/PM dasar", "cadence": "daily" },
+          { "id": "act_002", "title": "Haircut + konsultasi stylist", "cadence": "once" },
+          { "id": "act_003", "title": "Audit wardrobe 30 menit", "cadence": "once" }
+        ]
+      },
+      {
+        "week": 2,
+        "focus": "Upgrade tampil rapi",
+        "actions": [
+          { "id": "act_004", "title": "Sunscreen re-apply", "cadence": "daily" },
+          { "id": "act_005", "title": "Tambah 2 outfit smart-casual", "cadence": "once" },
+          { "id": "act_006", "title": "Latihan postur 10 menit", "cadence": "daily" }
+        ]
+      },
+      {
+        "week": 3,
+        "focus": "Fitness & energi",
+        "actions": [
+          { "id": "act_007", "title": "Strength training full body", "cadence": "3x/week" },
+          { "id": "act_008", "title": "Langkah 7.000/hari", "cadence": "daily" },
+          { "id": "act_009", "title": "Protein target 90g", "cadence": "daily" }
+        ]
+      },
+      {
+        "week": 4,
+        "focus": "Personal branding",
+        "actions": [
+          { "id": "act_010", "title": "Update foto profil (natural lighting)", "cadence": "once" },
+          { "id": "act_011", "title": "Perbaiki bio & headline", "cadence": "once" },
+          { "id": "act_012", "title": "Konsisten grooming sebelum meeting", "cadence": "daily" }
+        ]
+      },
+      {
+        "week": 8,
+        "focus": "Refinement",
+        "actions": [
+          { "id": "act_013", "title": "Evaluasi progres skor", "cadence": "once" },
+          { "id": "act_014", "title": "Tambah satu signature item", "cadence": "once" },
+          { "id": "act_015", "title": "Skin check-in mingguan", "cadence": "weekly" }
+        ]
+      },
+      {
+        "week": 12,
+        "focus": "Maintenance & scale",
+        "actions": [
+          { "id": "act_016", "title": "Rencana 90 hari berikutnya", "cadence": "once" },
+          { "id": "act_017", "title": "Review wardrobe capsule", "cadence": "once" },
+          { "id": "act_018", "title": "Ulangi foto before/after", "cadence": "once" }
+        ]
+      }
+    ]
+  },
+  "progressEntries": [
+    {
+      "date": "2026-03-01",
+      "weightKg": 57.5,
+      "transformationScore": 65,
+      "completedActionIds": ["act_001", "act_004"]
+    },
+    {
+      "date": "2026-03-15",
+      "weightKg": 57,
+      "transformationScore": 67,
+      "completedActionIds": ["act_001", "act_007", "act_008"]
+    },
+    {
+      "date": "2026-04-01",
+      "weightKg": 56.4,
+      "transformationScore": 69,
+      "completedActionIds": ["act_001", "act_006", "act_007", "act_008"]
+    },
+    {
+      "date": "2026-04-20",
+      "weightKg": 56,
+      "transformationScore": 71,
+      "completedActionIds": ["act_001", "act_010", "act_011"]
+    },
+    {
+      "date": "2026-05-01",
+      "weightKg": 56,
+      "transformationScore": 71,
+      "completedActionIds": ["act_001", "act_012"]
+    }
+  ],
+  "analyses": [
+    {
+      "id": "ana_0001",
+      "userId": "usr_0001",
+      "createdAt": "2026-04-20T08:30:00.000Z",
+      "confidencePct": 84,
+      "faceShape": "oval",
+      "skin": { "type": "combination", "concerns": ["acne", "dullness"] },
+      "hair": { "density": "medium", "concerns": ["frizz"] },
+      "style": { "vibe": "smart-casual", "notes": ["clean lines", "neutral palette"] },
+      "scores": {
+        "skin": 72,
+        "hair": 80,
+        "fashion": 65,
+        "grooming": 70,
+        "fitness": 60,
+        "personalBranding": 74,
+        "overall": 71
+      },
+      "highlights": [
+        "Potensi peningkatan terbesar ada di fitness dan fashion.",
+        "Konsistensi skincare sudah baik, tinggal fokus pada barrier dan sunscreen.",
+        "Gaya smart-casual cocok; optimasi fit dan layering untuk terlihat lebih premium."
+      ],
+      "kind": "skin"
+    }
+  ]
+}
+

@@ -12,9 +12,12 @@ export function GET(
 ) {
   return params.then(async ({ jobId }) => {
     const url = `${getWorkerBaseUrl()}/jobs/${encodeURIComponent(jobId)}`;
-    const res = await fetch(url, { cache: "no-store" });
-    const data = (await res.json()) as unknown;
-    return Response.json(data, { status: res.status });
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      const data = (await res.json()) as unknown;
+      return Response.json(data, { status: res.status });
+    } catch {
+      return Response.json({ ok: false, error: "worker_unreachable" }, { status: 502 });
+    }
   });
 }
-

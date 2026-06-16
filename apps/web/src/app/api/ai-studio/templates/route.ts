@@ -6,8 +6,11 @@ function getWorkerBaseUrl() {
 
 export async function GET() {
   const url = `${getWorkerBaseUrl()}/templates`;
-  const res = await fetch(url, { cache: "no-store" });
-  const data = (await res.json()) as unknown;
-  return Response.json(data, { status: res.status });
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    const data = (await res.json()) as unknown;
+    return Response.json(data, { status: res.status });
+  } catch {
+    return Response.json({ ok: false, error: "worker_unreachable" }, { status: 502 });
+  }
 }
-

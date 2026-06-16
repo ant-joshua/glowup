@@ -25,6 +25,16 @@ export default function CommerceLandingPage() {
             description: "Daftar belanja / wishlist.",
           },
           {
+            href: "/commerce/checkout",
+            title: "Checkout",
+            description: "Start checkout & place mock order.",
+          },
+          {
+            href: "/commerce/orders",
+            title: "Orders",
+            description: "Order history + detail.",
+          },
+          {
             href: "/commerce/affiliate-analytics",
             title: "Affiliate Analytics",
             description: "Ringkasan performa affiliate creator.",
@@ -34,4 +44,3 @@ export default function CommerceLandingPage() {
     </PageShell>
   );
 }
-

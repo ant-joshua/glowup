@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         hostname: "cdn.mailry.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "coresg-normal.trae.ai",
+        pathname: "/**",
+      },
     ],
   },
 };

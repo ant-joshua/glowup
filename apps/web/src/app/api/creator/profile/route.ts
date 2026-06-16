@@ -1,32 +1,35 @@
-const payload = {
-  ok: true,
-  creator: {
-    id: "cr_0007",
-    userId: "usr_0001",
-    username: "alya.glow",
-    displayName: "Alya Putri",
-    bio: "Skincare minimalis + gaya smart-casual untuk kerja. Fokus: barrier, sunscreen, dan wardrobe capsule.",
-    verified: true,
-    avatar: {
-      url: "https://example.invalid/avatars/cr_0007.png",
-      blurhash: "LEHV6nWB2yk8pyo0adR*.7kCMdnj",
-    },
-    links: {
-      instagram: "https://instagram.com/alya.glow",
-      tiktok: "https://tiktok.com/@alya.glow",
-      youtube: null,
-      website: "https://example.invalid/alya",
-    },
-    stats: {
-      followers: 12840,
-      following: 214,
-      routines: 12,
-      collections: 3,
-    },
-    updatedAt: "2026-05-01T00:00:00.000Z",
-  },
-};
+import { normalizeProfilePatch, readCreatorStore, writeCreatorStore } from "../../../_lib/creatorStore";
 
-export function GET() {
-  return Response.json(payload);
+export async function GET() {
+  const store = await readCreatorStore();
+  return Response.json({ ok: true, creator: store.creator });
+}
+
+export async function PUT(request: Request) {
+  let body: unknown = null;
+  try {
+    body = await request.json();
+  } catch {
+    body = null;
+  }
+
+  const patch = normalizeProfilePatch(body);
+  if (!patch) {
+    return Response.json({ ok: false, error: "invalid_request" }, { status: 400 });
+  }
+
+  const store = await readCreatorStore();
+  const nextCreator = {
+    ...store.creator,
+    displayName: patch.displayName ?? store.creator.displayName,
+    bio: patch.bio ?? store.creator.bio,
+    links: patch.links ? { ...store.creator.links, ...patch.links } : store.creator.links,
+    avatar:
+      patch.avatarUrl && patch.avatarUrl.length > 0
+        ? { ...store.creator.avatar, url: patch.avatarUrl }
+        : store.creator.avatar,
+  };
+
+  const saved = await writeCreatorStore({ ...store, creator: nextCreator });
+  return Response.json({ ok: true, creator: saved.creator });
 }

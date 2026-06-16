@@ -33,9 +33,13 @@ export async function GET(request: Request) {
   const url = new URL(`${getWorkerBaseUrl()}/jobs`);
   if (status) url.searchParams.set("status", status);
 
-  const res = await fetch(url.toString(), { cache: "no-store" });
-  const data = (await res.json()) as unknown;
-  return Response.json(data, { status: res.status });
+  try {
+    const res = await fetch(url.toString(), { cache: "no-store" });
+    const data = (await res.json()) as unknown;
+    return Response.json(data, { status: res.status });
+  } catch {
+    return Response.json({ ok: false, error: "worker_unreachable" }, { status: 502 });
+  }
 }
 
 export async function POST(request: Request) {
@@ -51,8 +55,18 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "invalid_request" }, { status: 400 });
   }
 
-  const templatesRes = await fetch(`${getWorkerBaseUrl()}/templates`, { cache: "no-store" });
-  const templatesData = (await templatesRes.json()) as TemplatesResponse;
+  let templatesData: TemplatesResponse | null = null;
+  try {
+    const templatesRes = await fetch(`${getWorkerBaseUrl()}/templates`, { cache: "no-store" });
+    templatesData = (await templatesRes.json()) as TemplatesResponse;
+  } catch {
+    templatesData = null;
+  }
+
+  if (!templatesData) {
+    return Response.json({ ok: false, error: "worker_unreachable" }, { status: 502 });
+  }
+
   const known = templatesData.ok === true && Array.isArray(templatesData.items)
     ? templatesData.items.some((t) => t.id === validated.templateId)
     : false;
@@ -61,12 +75,15 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "unknown_template" }, { status: 400 });
   }
 
-  const res = await fetch(`${getWorkerBaseUrl()}/jobs`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(validated),
-  });
-  const data = (await res.json()) as unknown;
-  return Response.json(data, { status: res.status });
+  try {
+    const res = await fetch(`${getWorkerBaseUrl()}/jobs`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(validated),
+    });
+    const data = (await res.json()) as unknown;
+    return Response.json(data, { status: res.status });
+  } catch {
+    return Response.json({ ok: false, error: "worker_unreachable" }, { status: 502 });
+  }
 }
-

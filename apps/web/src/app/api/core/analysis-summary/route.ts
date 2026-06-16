@@ -1,31 +1,13 @@
-const payload = {
-  ok: true,
-  analysis: {
-    id: "ana_0001",
-    userId: "usr_0001",
-    createdAt: "2026-04-20T08:30:00.000Z",
-    confidencePct: 84,
-    faceShape: "oval",
-    skin: { type: "combination", concerns: ["acne", "dullness"] },
-    hair: { density: "medium", concerns: ["frizz"] },
-    style: { vibe: "smart-casual", notes: ["clean lines", "neutral palette"] },
-    scores: {
-      skin: 72,
-      hair: 80,
-      fashion: 65,
-      grooming: 70,
-      fitness: 60,
-      personalBranding: 74,
-      overall: 71,
-    },
-    highlights: [
-      "Potensi peningkatan terbesar ada di fitness dan fashion.",
-      "Konsistensi skincare sudah baik, tinggal fokus pada barrier dan sunscreen.",
-      "Gaya smart-casual cocok; optimasi fit dan layering untuk terlihat lebih premium.",
-    ],
-  },
-};
+import { createAnalysisFromKind, readCoreStore, writeCoreStore } from "../../../_lib/coreStore";
 
-export function GET() {
-  return Response.json(payload);
+export async function GET() {
+  const store = await readCoreStore();
+  const latest = store.analyses[store.analyses.length - 1];
+  if (latest) {
+    return Response.json({ ok: true, analysis: latest });
+  }
+
+  const created = createAnalysisFromKind("skin", store.user.id);
+  const saved = await writeCoreStore({ ...store, analyses: [created] });
+  return Response.json({ ok: true, analysis: saved.analyses[saved.analyses.length - 1] });
 }

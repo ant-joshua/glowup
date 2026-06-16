@@ -1,27 +1,8 @@
-function toMinutes(timeHHmm: string) {
-  const [hh, mm] = timeHHmm.split(":");
-  return Number(hh) * 60 + Number(mm);
-}
+import { getExpertService } from "../../_experts";
+import { readClinicStore } from "../../../../_lib/clinicStore";
+import { generateSlots, slotIdFrom } from "../_slots";
 
-function pad2(value: number) {
-  return String(value).padStart(2, "0");
-}
-
-function addMinutes(timeHHmm: string, deltaMinutes: number) {
-  const total = toMinutes(timeHHmm) + deltaMinutes;
-  const hh = Math.floor(total / 60);
-  const mm = total % 60;
-  return `${pad2(hh)}:${pad2(mm)}`;
-}
-
-const SERVICE_DURATION_MINUTES: Record<string, number> = {
-  "svc-derm-001": 30,
-  "svc-derm-002": 60,
-  "svc-fit-001": 60,
-  "svc-fit-002": 60,
-};
-
-export function GET(request: Request) {
+export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const expertId = searchParams.get("expertId") ?? "dr-001";
   const serviceId = searchParams.get("serviceId") ?? "svc-derm-001";
@@ -30,23 +11,38 @@ export function GET(request: Request) {
     | "online"
     | "in_person";
 
-  const durationMinutes = SERVICE_DURATION_MINUTES[serviceId] ?? 30;
-  const startTimes = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
+  const durationMinutes = getExpertService(expertId, serviceId)?.durationMinutes ?? 30;
 
-  const slots = startTimes.map((startTime, index) => {
-    const endTime = addMinutes(startTime, durationMinutes);
-    const available = !(expertId === "dr-001" && date === "2026-06-01" && index === 2);
+  const unavailableSlotIds =
+    expertId === "dr-001" && date === "2026-06-01"
+      ? new Set<string>([slotIdFrom(date, "11:00")])
+      : new Set<string>();
 
-    return {
-      id: `slot-${date}-${startTime.replace(":", "")}`,
-      expertId,
-      serviceId,
-      mode,
-      startAt: `${date}T${startTime}:00+07:00`,
-      endAt: `${date}T${endTime}:00+07:00`,
-      available,
-    };
-  });
+  const store = await readClinicStore();
+  const now = Date.now();
+  const activeHolds = store.holds.filter((h) => Date.parse(h.expiresAt) > now);
+  const reservedSlotIds = new Set(
+    store.bookings
+      .filter((b) => b.status === "confirmed" && b.expertId === expertId && b.mode === mode)
+      .map((b) => b.slotId),
+  );
+  const heldSlotIds = new Set(
+    activeHolds
+      .filter((h) => h.expertId === expertId && h.mode === mode)
+      .map((h) => h.slotId),
+  );
+
+  const slots = generateSlots({
+    expertId,
+    serviceId,
+    date,
+    mode,
+    durationMinutes,
+    unavailableSlotIds,
+  }).map((slot) => ({
+    ...slot,
+    available: slot.available && !reservedSlotIds.has(slot.id) && !heldSlotIds.has(slot.id),
+  }));
 
   return Response.json({
     ok: true,
